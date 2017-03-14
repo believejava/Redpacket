@@ -1,0 +1,22 @@
+.m-l-5 {
+	margin-left:5px;
+}
+.wid-80 {
+	width:80px!important;
+}
+.wid-100 {
+	width:100px!important;
+	min-width:100px!important;
+}
+.wid-116 {
+	width:116px!important;
+}
+.wid-140 {
+	width:140px!important;
+}
+.my-header {
+	margin:0 auto;
+	width:400px;
+    height:100px; 
+    border:3px solid #F00;
+}
