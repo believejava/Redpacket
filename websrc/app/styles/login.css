@@ -1,0 +1,189 @@
+.login {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.login .welcome-info {
+    position: fixed;
+    top: 397px;
+    left: 86px;
+}
+
+.login h1 {
+    font-size: 2.25rem;
+    color: #FFF;
+}
+
+.login .info{
+    color: #CCC;
+    font-weight: 200;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.login-container {
+    position: fixed;
+    top: 211px;
+    right: 86px;
+    width: 461px;
+    height: 480px;
+    background-color: rgba(21,173,158,0.6);
+}
+
+.login-form {
+    width: 355px;
+    height: 376px;
+    margin-left: 54px;
+    margin-right: 54px;
+}
+
+.login .title {
+    display: inherit;
+    line-height: 40px;
+    margin-top: 46px;
+    margin-bottom: 48px;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: #FFF;
+    opacity: 0.5;
+}
+
+.login .input-group input {
+    width: 354px;
+    height: 42px;
+    border-radius: 0;
+    font-size: 1rem;
+    margin-bottom: 24px;
+    padding:0 15px;
+}
+
+.login .icon-nav-admin {
+    font-size: 1.2rem;
+    color: #FFF;
+    position: absolute;
+    left: 14px;
+    top: 12px;
+}
+
+.textline {
+    padding-left: 55px;
+    border-left-width: 1px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-bottom-color: rgba(255,255,255,0.5);
+    background-color: rgba(21,173,158,0);
+    color: rgba(255,255,255,0.5);
+    font-size: 1rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.login .textline:focus,
+.login .textline.active,
+.login .textline:hover {    
+    border-bottom-color: #FFF;
+    color: #FFF;
+}
+
+.login button {
+    color: #FFF;
+    width: 354px;
+    height: 45px;
+    font-size: 1.25rem;
+    border-radius: 0;
+    background-color: #15AD9E;
+}
+
+.login .btn:focus,
+.login .btn.active,
+.login .btn:hover {
+    border: 0;
+    background-color: #009080;
+    color: #FFF;
+    box-shadow: none;
+}
+
+.login :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.login ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.login  input:-ms-input-placeholder,
+.login textarea:-ms-input-placeholder {
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.login input::-webkit-input-placeholder,
+.login textarea::-webkit-input-placeholder {
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.login .checkbox {
+    margin-left: 19px;
+    margin-bottom: 34px;
+}
+
+.login-check {
+    color: #FFF;
+    font-size: .875rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin-left: 3px;
+    margin-right: 90px;
+}
+
+.login-notice{
+    font-size: .875rem;
+    color: #ff0 !important;
+    font-weight: 100;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.sign-up-notice {
+    color: #FFF;
+    font-size: .875rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    margin-left: 3px;
+    margin-right: 100px;
+
+}
+
+.login-form .sign-up {
+    width: 80px;
+    height: 35px;
+    margin-left: 274px; 
+    margin-top: -44px;
+    font-size: 0.875rem;
+    background-color: rgba(21,173,158,0);
+    color: #FFF;
+    border: 1px solid #FFF !important;
+}
+
+.blur {
+    width: 100%;
+    height: 100%; 
+    filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+    
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(10px);
+    
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
