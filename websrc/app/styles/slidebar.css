@@ -39,6 +39,13 @@ body {
     height: 65px;
     background-color: #15AD9E;
 }
+
+.header button {
+    position: absolute;
+    top: 16px;
+    right: 100px;
+}
+
 .header img {
     position: absolute;
     top: 12px;
@@ -60,6 +67,7 @@ body {
 }
 
 .primary-nav li {
+    cursor: pointer;
     border-left: 3px solid #666;
     text-indent: 20px;
     line-height: 55px;

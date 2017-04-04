@@ -19,6 +19,7 @@
 
         <header class="header">
             <span>
+                <button href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</button>
                 <img src="images/ww.jpg"/>
             </span>
         </header>
@@ -35,26 +36,26 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li id="configure-id">
+                    <a ui-sref="configure">
                         <i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
                         <span>配置项管理</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li id="batch-id">
+                    <a ui-sref="batch">
                         <i class="glyphicon glyphicon-barcode" aria-hidden="true"></i>
                         <span>产品批次管理</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li id="redpacketinfo-id">
+                    <a ui-sref="userInfo">
                         <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                         <span>查看微信用户信息</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li id="userinfo-id">
+                    <a ui-sref="redpacketInfo">
                         <i class="glyphicon glyphicon-align-justify" aria-hidden="true"></i>
                         <span>查看红包信息</span>
                     </a>
@@ -63,20 +64,12 @@
         </div>
         <!-- /#sidebar-wrapper -->
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper" class="page-content-wrapper"  ng-app="npmtApp"  ng-controller="basicController">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Simple Sidebar</h1>
-                    <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                </div>
-            </div>
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="page-content-wrapper"  ng-app="npmtApp"  ng-controller="basicController">
+            <div ui-view></div>
         </div>
-    </div>
-    <!-- /#page-content-wrapper -->
+        <!-- /#page-content-wrapper -->
+
 
 </body>
 
@@ -87,5 +80,11 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/common/style.js"></script>
 <script src="scripts/component/basicController.js"></script>
+
+
+<script src="scripts/component/batch/batchController.js"></script>
+<script src="scripts/component/configure/configureController.js"></script>
+<script src="scripts/component/redpacketInfo/redpacketInfoController.js"></script>
+<script src="scripts/component/userInfo/userInfoController.js"></script>
 
 </html>
