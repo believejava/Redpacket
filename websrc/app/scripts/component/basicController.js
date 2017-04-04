@@ -1,5 +1,5 @@
-angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '$scope','$timeout','$location',
-    function($http,$rootScope,$scope,$timeout,$location) {
+angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '$scope','$timeout','$location','$state',
+    function($http,$rootScope,$scope,$timeout,$location,$state) {
 
     $timeout(function () {
         var $primaryNav = $('.primary-nav');
@@ -27,6 +27,6 @@ angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '
             $(this).children('a').css('color','#c7c7c7').children('i').css('color','#c7c7c7');
         });
     })
-   $scope.testWord = "why always me!!!";
-	
+    $scope.testWord = "why always me!!!";
+    $state.go('batch');
 }]);

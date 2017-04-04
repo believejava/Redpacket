@@ -1,13 +1,10 @@
 'use strict';
 var npmtApp = angular.module('npmtApp', ['ui.router']);
 
-npmtApp.config(function($stateProvider, $urlRouterProvider,$locationProvider){
+npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider){
 	$locationProvider.html5Mode(false);
 	$urlRouterProvider.otherwise('/batch');
-	$stateProvider.state('404', {
-		url : '/404',
-		templateUrl : '404.html'
-	}).state('configure', {
+	$stateProvider.state('configure', {
 		url : '/configure',
 		templateUrl : "views/configure.html",
         controller : "configureController"
