@@ -28,5 +28,4 @@ angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '
         });
     })
     $scope.testWord = "why always me!!!";
-    $state.go('batch');
 }]);
