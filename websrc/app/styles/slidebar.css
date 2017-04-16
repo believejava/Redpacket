@@ -53,6 +53,7 @@ body {
     width: 42px;
     height: 42px;
     border-radius: 100%;
+    cursor: pointer;
 }
 
 /* Sidebar Styles */
@@ -98,6 +99,7 @@ body {
     position: absolute;
     padding: 15px;
     margin-left: 250px;
+    width: 100%;
 }
 
 .page-content-wrapper.toggled {
