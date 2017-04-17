@@ -8,7 +8,11 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
 		url : '/configure',
 		templateUrl : "views/configure.html",
         controller : "configureController"
-	}).state('batch', {
+	}).state('scan', {
+        url : '/scan',
+        templateUrl : "views/scan.html",
+        controller : "scanController"
+    }).state('batch', {
         url : '/batch',
         templateUrl : "views/batch.html",
 		controller : "batchController"
@@ -20,6 +24,9 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
         url : '/redpacketinfo',
         templateUrl : "views/redpacketInfo.html",
         controller : "redpacketInfoController"
+    }).state('login', {
+        url : '/login',
+        templateUrl : "views/login.html"
     });
 
 });

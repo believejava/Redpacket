@@ -10,6 +10,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/slidebar.css">
     <link rel="stylesheet" href="styles/login.css">
 
@@ -23,8 +24,9 @@
     <script src="scripts/component/basicController.js"></script>
 
 
-    <script src="scripts/component/batch/batchController.js"></script>
     <script src="scripts/component/configure/configureController.js"></script>
+    <script src="scripts/component/scan/scanController.js"></script>
+    <script src="scripts/component/batch/batchController.js"></script>
     <script src="scripts/component/redpacketInfo/redpacketInfoController.js"></script>
     <script src="scripts/component/userInfo/userInfoController.js"></script>
 
@@ -44,15 +46,15 @@
                 众信红包管理平台
             </h1>
             <ul class="primary-nav" id="primary-nav">
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-th" aria-hidden="true"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
                 <li id="configure-id">
                     <a ui-sref="configure">
                         <i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
+                        <span>配置项管理</span>
+                    </a>
+                </li>
+                <li id="scan-id">
+                    <a ui-sref="scan">
+                        <i class="glyphicon glyphicon-th" aria-hidden="true"></i>
                         <span>产品扫描管理</span>
                     </a>
                 </li>
