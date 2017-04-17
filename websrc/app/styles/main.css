@@ -93,5 +93,7 @@ body {
 }
 
 .modal-row .is-random {
-  right: 185px;
+  right: 375px;
+  width: 25px;
+  height: 25px;
 }
