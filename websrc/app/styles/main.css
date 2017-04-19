@@ -92,7 +92,12 @@ body {
   right: 0;
 }
 
-.modal-row .is-random {
+.custom-checkbox {
+  width: 25px;
+  height: 25px;
+}
+
+.modal-row .custom-checkbox {
   right: 375px;
   width: 25px;
   height: 25px;
