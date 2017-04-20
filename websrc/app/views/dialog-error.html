@@ -1,0 +1,19 @@
+
+<div class=" warning-modal-small error-modal" role="dialog">
+	<div class="modal-header">
+		<span class="left-background"> <i class="icon-error-empty"></i>
+		</span>
+		<h4 class="modal-title">{{modalOptions.headerText}}</h4>
+	</div>
+	<div class="modal-body">
+		<span class="warning-info"> {{modalOptions.message.errorInfo}}
+		</span> <span class="warning-description">
+			{{modalOptions.message.errorDetail}} </span>
+	</div>
+	<div class="modal-footer">
+		<a ng-show="modalOptions.cancelable">Cancel</a>
+
+		<button ng-repeat="btn in modalOptions.buttons" type="button"
+			class="btn btn-danger" ng-click="btn.fn()">{{btn.text}}</button>
+	</div>
+</div>

@@ -36,19 +36,20 @@ body {
 
 .header {
     position: relative;
-    height: 65px;
+    margin-top: -10px;
+    height: 75px;
     background-color: #15AD9E;
 }
 
 .header button {
     position: absolute;
-    top: 16px;
+    top: 26px;
     right: 100px;
 }
 
 .header img {
     position: absolute;
-    top: 12px;
+    top: 20px;
     right: 30px;
     width: 42px;
     height: 42px;

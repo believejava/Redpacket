@@ -1,0 +1,27 @@
+
+<div style="display: block;"
+	class="modal-content modal fade warning-modal-small ng-scope in warning-modal"
+	role="dialog" id="warning-message-dailog">
+	<div class="modal-header">
+		<span class="left-background"> <i
+			class="icon-warning modal-header-img"></i>
+		</span>
+		<h4 class="modal-title">{{modalOptions.headerText}}</h4>
+	</div>
+	<div class="modal-body">
+		<span class="warning-info"> {{modalOptions.message.errorInfo}}
+		</span> <span class="warning-description">
+			{{modalOptions.message.errorDetail}} <a
+			style="color: #15ad9e !important;" id="timeToCloseTab">
+				{{modalOptions.message.seconds}} </a>
+		</span>
+
+	</div>
+	<div class="modal-footer">
+		<a ng-show="modalOptions.cancelable"
+			ng-click="modalOptions.cancel.fn()">Cancel</a>
+
+		<button ng-repeat="btn in modalOptions.buttons" type="button"
+			class="btn" ng-click="btn.fn()">{{btn.text}}</button>
+	</div>
+</div>
