@@ -97,10 +97,9 @@ body {
 }
 
 .page-content-wrapper {
-    position: absolute;
+    position: relative;
     padding: 15px;
     margin-left: 250px;
-    width: 100%;
 }
 
 .page-content-wrapper.toggled {
