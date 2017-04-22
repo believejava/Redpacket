@@ -22,8 +22,8 @@ angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '
     $primaryNav.find('li').removeClass('active');
     var currentNavArr = $location.path().split("/");
     var currentPrimaryNav = currentNavArr[currentNavArr.length-1];
-    var selecttPrimaryNav = $('#'+currentPrimaryNav+"-id");
-    selecttPrimaryNav.addClass('active');
+    var selectedPrimaryNav = $('#'+currentPrimaryNav+"-id");
+    selectedPrimaryNav.addClass('active');
 
     $primaryNav.on('click','li',function (event) {
         event.stopPropagation();
@@ -42,6 +42,6 @@ angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '
         event.stopPropagation();
         $(this).children('a').css('color','#c7c7c7').children('i').css('color','#c7c7c7');
     });
-    },500)
-    $scope.testWord = "why always me!!!";
+    },500);
+        $scope.testWord = "why always me!!!";
 }]);
