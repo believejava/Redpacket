@@ -57,6 +57,26 @@ body {
     cursor: pointer;
 }
 
+.header .toggle-button {
+    z-index: 1;
+    position: absolute;
+    top: 26px;
+    left: 235px;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.header .toggle-button i {
+    position: fixed;
+    top: 21px;
+    left: 240px;
+    font-size: 20px;
+    color: #15AD9E;
+}
+
 /* Sidebar Styles */
 
 .primary-nav {
