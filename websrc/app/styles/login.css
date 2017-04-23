@@ -21,7 +21,7 @@
 .login .info{
     color: #CCC;
     font-weight: 200;
-    font-size: 0.9rem;
+    font-size: 1.55rem;
     margin-top: 10px;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .login .icon-nav-admin {
-    font-size: 1.2rem;
+    font-size: 1.55rem;
     color: #FFF;
     position: absolute;
     left: 14px;
@@ -112,27 +112,27 @@
 
 .login :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color: #FFF;
-    font-size: 1rem;
+    font-size: 1.55rem;
     font-weight: 100;
 }
 
 .login ::-moz-placeholder { /* Mozilla Firefox 19+ */
     color: #FFF;
-    font-size: 1rem;
+    font-size: 1.55rem;
     font-weight: 100;
 }
 
 .login  input:-ms-input-placeholder,
 .login textarea:-ms-input-placeholder {
     color: #FFF;
-    font-size: 1rem;
+    font-size: 1.55rem;
     font-weight: 100;
 }
 
 .login input::-webkit-input-placeholder,
 .login textarea::-webkit-input-placeholder {
     color: #FFF;
-    font-size: 1rem;
+    font-size: 1.55rem;
     font-weight: 100;
 }
 
@@ -143,7 +143,7 @@
 
 .login-check {
     color: #FFF;
-    font-size: .875rem;
+    font-size: 1.25rem;
     font-weight: 100;
     letter-spacing: 1px;
     margin-left: 3px;
@@ -151,7 +151,7 @@
 }
 
 .login-notice{
-    font-size: .875rem;
+    font-size: 1.25rem;
     color: #ff0 !important;
     font-weight: 100;
     cursor: pointer;
@@ -160,7 +160,7 @@
 
 .sign-up-notice {
     color: #FFF;
-    font-size: .875rem;
+    font-size: 1.25rem;
     font-weight: 100;
     letter-spacing: 1px;
     margin-top: 30px;
