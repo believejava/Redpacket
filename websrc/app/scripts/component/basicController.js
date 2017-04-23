@@ -1,8 +1,6 @@
 angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '$scope','$timeout','$location','$state',
     function($http,$rootScope,$scope,$timeout,$location,$state) {
 
-
-
     $timeout(function () {
 
     $("#menu-toggle").click(function(e) {
@@ -26,6 +24,11 @@ angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '
     $primaryNav.find('li').removeClass('active');
     var currentNavArr = $location.path().split("/");
     var currentPrimaryNav = currentNavArr[currentNavArr.length-1];
+    if(currentPrimaryNav === "login"){
+        $("#page-content-wrapper").removeClass("page-content-wrapper");
+    } else {
+        $("#page-content-wrapper").addClass("page-content-wrapper");
+    }
     var selectedPrimaryNav = $('#'+currentPrimaryNav+"-id");
     selectedPrimaryNav.addClass('active');
 
@@ -47,5 +50,4 @@ angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '
         $(this).children('a').css('color','#c7c7c7').children('i').css('color','#c7c7c7');
     });
     },500);
-        $scope.testWord = "why always me!!!";
 }]);
