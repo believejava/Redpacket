@@ -7,23 +7,53 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
 	$stateProvider.state('configure', {
 		url : '/configure',
 		templateUrl : "views/configure.html",
-        controller : "configureController"
+        controller : "configureController",
+        resolve: {
+            appService:'appService',
+            token: function(appService) {
+                return appService.getToken();
+            }
+         }
 	}).state('scan', {
         url : '/scan',
         templateUrl : "views/scan.html",
-        controller : "scanController"
+        controller : "scanController",
+        resolve: {
+            appService:'appService',
+            token: function(appService) {
+                return appService.getToken();
+            }
+         }
     }).state('batch', {
         url : '/batch',
         templateUrl : "views/batch.html",
-		controller : "batchController"
+		controller : "batchController",
+        resolve: {
+            appService:'appService',
+            token: function(appService) {
+                return appService.getToken();
+            }
+         }
     }).state('userInfo', {
         url : '/userinfo',
         templateUrl : "views/userInfo.html",
-        controller : "userInfoController"
+        controller : "userInfoController",
+        resolve: {
+            appService:'appService',
+            token: function(appService) {
+                return appService.getToken();
+            }
+         }
     }).state('redpacketInfo', {
         url : '/redpacketinfo',
         templateUrl : "views/redpacketInfo.html",
-        controller : "redpacketInfoController"
+        controller : "redpacketInfoController",
+        resolve: {
+            appService:'appService',
+            token: function(appService) {
+                return appService.getToken();
+            }
+         }
     }).state('login', {
         url : '/login',
         templateUrl : "views/login.html"

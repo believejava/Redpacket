@@ -1,5 +1,11 @@
-angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '$scope','$timeout','$location','$state',
-    function($http,$rootScope,$scope,$timeout,$location,$state) {
+angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '$scope','$timeout','$location','$state','appService',
+    function($http,$rootScope,$scope,$timeout,$location,$state,appService) {
+
+    $scope.initPro = function () {
+        appService.getToken();
+    };
+
+    $scope.initPro();
 
     $timeout(function () {
 
