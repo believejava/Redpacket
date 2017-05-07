@@ -90,6 +90,7 @@ body {
   height: 30px;
   width: 400px;
   right: 0;
+  outline: 0 !important;
 }
 
 .custom-checkbox {
@@ -112,4 +113,20 @@ body {
 .search-term label {
   padding-top: 8px;
   padding-right: 10px;
+}
+
+.product-detail-modal {
+  width: 800px;
+  height: 500px;
+}
+
+.product-detail-modal .modal-row input{
+  position: inherit;
+  width: 25px;
+  height: 25px;
+  outline: 0 !important;
+}
+
+table thead th, tr{
+  text-align: center;
 }

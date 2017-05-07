@@ -12,3 +12,16 @@ angular.module('npmtApp').filter('allowedCityFilter',function(){
 		return output;
 	}
 });
+
+
+angular.module('npmtApp').filter('isSelectedFilter',function(){
+	return function (input) {
+		var output = "";
+		if(input)
+			output = "是";
+		else
+			output = "否"
+		return output;
+	}
+});
+

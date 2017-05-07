@@ -14,17 +14,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
                 return appService.getToken();
             }
          }
-	}).state('scan', {
-        url : '/scan',
-        templateUrl : "views/scan.html",
-        controller : "scanController",
-        resolve: {
-            appService:'appService',
-            token: function(appService) {
-                return appService.getToken();
-            }
-         }
-    }).state('batch', {
+	}).state('batch', {
         url : '/batch',
         templateUrl : "views/batch.html",
 		controller : "batchController",

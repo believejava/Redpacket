@@ -12,6 +12,13 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
 	  });
     }
 
+
+    $scope.openDetailModal = function(productDetail){
+      $('#'+productDetail[0].productDetailPrimaryKey.productId+'_product_detail').modal('show')
+    }
+
+
+
    $scope.productBatchInfo();
 
 }]);
