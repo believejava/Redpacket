@@ -10,6 +10,7 @@ $RECYCLE.BIN/
 bower_components/
 node_modules/
 src/
+.idea/
 
 # Windows Installer files
 *.cab
