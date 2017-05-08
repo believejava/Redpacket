@@ -10,6 +10,16 @@ angular.module('npmtApp').factory('userInfoService',['$http', '$rootScope','$sta
     			});
     			
     			return promise;
-    		}	
+    		},
+
+            getCityListServ: function(){
+                var url = "http://localhost:8080/api/city/";
+                var promise = $http({
+                    method: 'GET',
+                    url: url
+                });
+                
+                return promise;
+            }   	
     	}
 }]);

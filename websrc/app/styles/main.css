@@ -130,3 +130,11 @@ body {
 table thead th, tr{
   text-align: center;
 }
+
+.isteven-multi-select-div { display: inline;
+}
+
+.multiSelect .checkBoxContainer {
+    height: 300px;
+    overflow: auto;
+}

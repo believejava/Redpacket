@@ -14,7 +14,7 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
 
 
     $scope.openDetailModal = function(productDetail){
-      $('#'+productDetail[0].productDetailPrimaryKey.productId+'_product_detail').modal('show')
+      $('#'+productDetail[0].productId+'_product_detail').modal('show')
     }
 
 

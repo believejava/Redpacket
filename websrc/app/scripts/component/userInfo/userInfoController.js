@@ -13,5 +13,31 @@ angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope'
 	  });
     }
 
-   $scope.getWechatUserInfo();
+	$scope.getCityList = function(){
+      userInfoService.getCityListServ().then(function(response){
+	   	if (response.status = 200 ) {
+	   		$scope.modernBrowsers = response.data;
+	   	}
+	  }, function (error) {
+	  	console.log(error);
+	  });
+    }
+
+      $scope.checkRedpackets = function(redPackets){
+      $('#'+redPackets[0].id+'_redpackets_detail').modal('show')
+    }
+
+
+
+    $scope.getWechatUserInfo();
+    $scope.getCityList();
+
+ //   $scope.modernBrowsers = [
+	//  	{name: "Opera",	maker: "Opera Software",	ticked: true	},
+	//  	{name: "Internet Explorer",	maker: "Microsoft",	ticked: false	},
+	//  	{name: "Firefox",	maker: "Mozilla Foundation",	ticked: true	},
+	//  	{name: "Safari",	maker: "Apple",	ticked: false	},
+	//  	{name: "Chrome",	maker: "Google",	ticked: true	}
+	// ];
+
 }]);
