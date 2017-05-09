@@ -14,7 +14,17 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
                 return appService.getToken();
             }
          }
-	}).state('batch', {
+	}).state('scancode', {
+        url : '/scancode',
+        templateUrl : "views/scancode.html",
+        controller : "scancodeController",
+        resolve: {
+            appService:'appService',
+            token: function(appService) {
+                return appService.getToken();
+            }
+         }
+    }).state('batch', {
         url : '/batch',
         templateUrl : "views/batch.html",
 		controller : "batchController",
