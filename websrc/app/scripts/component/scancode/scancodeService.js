@@ -1,4 +1,4 @@
-angular.module('npmtApp').factory('batchService',['$http', '$rootScope','$state',
+angular.module('npmtApp').factory('scancodeService',['$http', '$rootScope','$state',
     function($http,$rootScope,$state) {
    
     	return {

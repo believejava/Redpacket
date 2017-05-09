@@ -23,34 +23,12 @@
                     <th>用户已扫码</th>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td width="25%">众信香油家庭火锅底料</td>
-                        <td  width="25%">012323</td>
+                    <tr ng-repeat="iterationProductDetails in allProductDetails">
+                        <td  width="25%">{{iterationProductDetails.name}}</td>
+                        <td  width="25%">{{iterationProductDetails.productDetailNum}}</td>
                         <td  width="25%"><input class="custom-checkbox" type="checkbox" value=""></td>
-                        <td  width="25%">是</td>
+                        <td  width="25%">{{iterationProductDetails.scanned}}</td>
                     </tr>
-
-                    <tr>
-                        <td width="25%">众信香油家庭火锅底料</td>
-                        <td  width="25%">012323</td>
-                        <td  width="25%"><input class="custom-checkbox" type="checkbox" value=""></td>
-                        <td  width="25%">是</td>
-                    </tr>
-
-                    <tr>
-                        <td width="25%">众信香油家庭火锅底料</td>
-                        <td  width="25%">012323</td>
-                        <td  width="25%"><input class="custom-checkbox" type="checkbox" value=""></td>
-                        <td  width="25%">是</td>
-                    </tr>
-
-                    <tr>
-                        <td width="25%">众信香油家庭火锅底料</td>
-                        <td  width="25%">012323</td>
-                        <td  width="25%"><input class="custom-checkbox" type="checkbox" value=""></td>
-                        <td  width="25%">是</td>
-                    </tr>
-
 
                     </tbody>
                 </table>

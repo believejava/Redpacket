@@ -57,7 +57,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr ng-repeat="redPacketsDetail in userInfo.redPackets | orderBy:'createDateTime':false">
-                                                        <td>{{redPacketsDetail.productName}}</td>
+                                                        <td>{{redPacketsDetail.productDetail.productName}}</td>
                                                         <td>{{redPacketsDetail.amount}}</td>
                                                         <td>{{redPacketsDetail.createDateTime | date:'yyyy-MM-dd'}}</td>
                                                     </tr>

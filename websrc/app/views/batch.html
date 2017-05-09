@@ -49,14 +49,15 @@
                                             <div class="modal-row">
                                                 <table class="table table-striped table-hover">
                                                     <thead>
-                                                    <th>用户可否领取红包</th>
                                                     <th>产品编号</th>
+                                                    <th>用户可否领取红包</th>
                                                     <th>用户已扫码</th>
                                                     </thead>
                                                     <tbody>
+                                                    <!-- <input type="checkbox" name="checkbox" ng-model="productDetail.enable" /> -->
                                                     <tr ng-repeat="productDetail in batch.productDetails | orderBy:'productDetailId'">
-                                                        <td><input type="checkbox" name="checkbox" ng-model="productDetail.enable" /></td>
-                                                        <td>{{productDetail.productDetailId}}</td>
+                                                        <td>{{productDetail.productDetailNum}}</td>
+                                                        <td>{{productDetail.enable | isSelectedFilter}}</td>
                                                         <td>{{productDetail.scanned | isSelectedFilter}}</td>
                                                     </tr>
                                                     </tbody>

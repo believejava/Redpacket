@@ -3,7 +3,7 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     $rootScope.selectedTitle = "产品批次管理";
 
     $scope.productBatchInfo = function(){
-      batchService.getProductbatch().then(function(response){
+      batchService.getProductbatchServ().then(function(response){
 	   	if (response.status = 200 ) {
 	   		$scope.batchInfo = response.data;
 	   	}
