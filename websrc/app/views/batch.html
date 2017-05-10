@@ -55,7 +55,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <!-- <input type="checkbox" name="checkbox" ng-model="productDetail.enable" /> -->
-                                                    <tr ng-repeat="productDetail in batch.productDetails | orderBy:'productDetailId'">
+                                                    <tr ng-repeat="productDetail in batch.productDetails | orderBy:'productDetailNum'">
                                                         <td>{{productDetail.productDetailNum}}</td>
                                                         <td>{{productDetail.enable | isSelectedFilter}}</td>
                                                         <td>{{productDetail.scanned | isSelectedFilter}}</td>
@@ -92,31 +92,39 @@
             <div class="modal-body">
                 <div class="modal-row">
                     <label for="productId">产品名称</label>
-                    <input type="text" id="productId">
+                    <input type="text" id="productId" ng-model="addedProductBatch.name">
                 </div>
-                <div class="modal-row">
+                <div class="modal-row mb-20">
                     <label for="cityId">可销售城市</label>
-                    <input type="text" id="cityId">
+                    <div class="isteven-multi-select-div ml-72" 
+                        isteven-multi-select
+                        input-model="modernBrowsers"
+                        output-model="outputBrowsers"
+                        button-label="icon name"
+                        item-label="icon name maker"
+                        tick-property="ticked"
+                    >
+                    </div>
                 </div>
                 <div class="modal-row">
                     <label for="countId">数量</label>
-                    <input type="text" id="countId">
+                    <input type="text" id="countId" ng-model="addedProductBatch.amount">
                 </div>
                 <div class="modal-row">
                     <label for="descId">描述</label>
-                    <input type="text" id="descId">
+                    <input type="text" id="descId" ng-model="addedProductBatch.description">
                 </div>
                 <div class="modal-row">
-                    <label><input class="custom-checkbox" type="checkbox" value="">是否随机红包</label>
+                    <label><input class="custom-checkbox" type="checkbox" value="" ng-model="addedProductBatch.randomRedpacket">是否随机红包</label>
                 </div>
                 <div class="modal-row">
-                    <label for="amountId">平均红包金额（元）</label>
-                    <input type="text" id="amountId">
+                    <label for="amountId">平均红包金额（分）</label>
+                    <input type="text" id="amountId" ng-model="addedProductBatch.averageAmount">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-detail">保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"  ng-click="closeModal()">取消</button>
+                <button type="button" class="btn btn-detail" ng-click="addProductBatch(addedProductBatch)">保存</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

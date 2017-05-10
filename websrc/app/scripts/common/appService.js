@@ -42,7 +42,16 @@ angular.module('npmtApp').factory('appService', ['$http', '$interval',
 					return self.tokenResponse;
 				}
 
-			}
+			},
+            getCityListServ: function(){
+                var url = "http://localhost:8080/api/city/";
+                var promise = $http({
+                    method: 'GET',
+                    url: url
+                });
+                
+                return promise;
+            }   	
 			
 
 		};

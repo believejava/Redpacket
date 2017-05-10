@@ -81,7 +81,7 @@ body {
   position: relative;
   height: 46px;
   margin: 5px 10px;
-  padding: 8px 0
+  padding: 8px 0;
 }
 
 .modal-row input {
@@ -117,8 +117,13 @@ body {
 
 .product-detail-modal {
   width: 800px;
-  height: 500px;
 }
+
+.product-detail-modal .modal-row {
+  height: 500px;
+  overflow-y: auto;
+}
+
 
 .product-detail-modal .modal-row input{
   position: inherit;
@@ -131,7 +136,16 @@ table thead th, tr{
   text-align: center;
 }
 
-.isteven-multi-select-div { display: inline;
+.isteven-multi-select-div { 
+  display: inline;
+}
+
+.ml-72 {
+  margin-left: 72px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }
 
 .multiSelect .checkBoxContainer {

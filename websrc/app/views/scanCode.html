@@ -23,7 +23,7 @@
                     <th>用户已扫码</th>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="iterationProductDetails in allProductDetails">
+                    <tr ng-repeat="iterationProductDetails in allProductDetails | orderBy:'[name,productDetailNum]'">
                         <td  width="25%">{{iterationProductDetails.name}}</td>
                         <td  width="25%">{{iterationProductDetails.productDetailNum}}</td>
                         <td  width="25%"><input class="custom-checkbox" type="checkbox" value=""></td>

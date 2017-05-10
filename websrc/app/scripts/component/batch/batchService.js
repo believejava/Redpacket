@@ -10,6 +10,17 @@ angular.module('npmtApp').factory('batchService',['$http', '$rootScope','$state'
     			});
     			
     			return promise;
-    		}	
+    		},
+
+            addProductBatchServ: function(params){
+                var url = "http://localhost:8080/api/product/";
+                var promise = $http({
+                    method: 'POST',
+                    url: url,
+                    data: JSON.stringify(params)
+                });
+                
+                return promise;
+            }	
     	}
 }]);

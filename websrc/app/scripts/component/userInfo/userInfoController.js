@@ -1,5 +1,5 @@
-angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope', '$scope','userInfoService',
-    function($http,$rootScope,$scope,userInfoService) {
+angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope', '$scope','userInfoService','appService',
+    function($http,$rootScope,$scope,userInfoService,appService) {
   
     $rootScope.selectedTitle = "用户信息管理";
     
@@ -14,7 +14,7 @@ angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope'
     }
 
 	$scope.getCityList = function(){
-      userInfoService.getCityListServ().then(function(response){
+      appService.getCityListServ().then(function(response){
 	   	if (response.status = 200 ) {
 	   		$scope.modernBrowsers = response.data;
 	   	}
