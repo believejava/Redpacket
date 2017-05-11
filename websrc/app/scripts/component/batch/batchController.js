@@ -1,7 +1,7 @@
-angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '$scope','$state','batchService','appService',
-    function($http,$rootScope,$scope,$state,batchService,appService) {
+angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '$scope','$state','batchService','appService','businessModel',
+    function($http,$rootScope,$scope,$state,batchService,appService,businessModel) {
     $rootScope.selectedTitle = "产品批次管理";
-
+    $scope.modernBrowsers = [];
     $scope.productBatchInfo = function(){
       batchService.getProductbatchServ().then(function(response){
 	   	if (response.status = 200 ) {
@@ -19,7 +19,8 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     $scope.getCityList = function(){
         appService.getCityListServ().then(function(response){
         if (response.status = 200 ) {
-          $scope.modernBrowsers = response.data;
+          businessModel.cityInfo = response.data;
+          angular.copy(businessModel.cityInfo, $scope.modernBrowsers);
         }
       }, function (error) {
         console.log(error);
@@ -27,22 +28,30 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     }
 
 
-   $scope.productBatchInfo();
-   $scope.getCityList();
+   $scope.getSelectedCityList = function (selectedCity) {
+      var allowSellCityIDArray = [];
+      for (var i = selectedCity.length - 1; i >= 0; i--) {
+         var tempCity = {"id":selectedCity[i].id};
+         allowSellCityIDArray.push(tempCity);
+      }
+      return allowSellCityIDArray;
+   }
+
    $scope.addedProductBatch = {
     "allowSellCities": [],
-    "amount": 50,
-    "averageAmount": 50,
+    "amount": null,
+    "averageAmount": null,
     "description": "",
     "name": "",
-    "randomRedpacket":true
+    "randomRedpacket":false
   };
    $scope.addProductBatch = function(tempProductBatch){
+
       tempProductBatch = {
-        "allowSellCities": [],
+        "allowSellCities": $scope.getSelectedCityList($scope.outputBrowsers),
         "amount": $scope.addedProductBatch.amount,
         "averageAmount": $scope.addedProductBatch.averageAmount,
-        "description": $scope.addedProductBatch.description,
+        "description": $scope.addedProductBatch.description || "",
         "name": $scope.addedProductBatch.name,
         "randomRedpacket": $scope.addedProductBatch.randomRedpacket
       };
@@ -60,13 +69,23 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     $scope.closeModal = function() {
           $scope.addedProductBatch = {
             "allowSellCities": [],
-            "amount": 50,
-            "averageAmount": 50,
+            "amount": null,
+            "averageAmount": null,
             "description": "",
             "name": "",
-            "randomRedpacket":true
+            "randomRedpacket":false
           };
        $('#addProductBatch').modal('hide');
     }
+
+
+    $scope.initBatch = function(){
+      $scope.productBatchInfo();
+      if (businessModel.cityInfo.length === 0) {
+        $scope.getCityList();
+      }
+    }
+
+    $scope.initBatch();
 
 }]);

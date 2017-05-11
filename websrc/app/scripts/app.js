@@ -1,5 +1,5 @@
 'use strict';
-var npmtApp = angular.module('npmtApp', ['ui.router', 'isteven-multi-select']);
+var npmtApp = angular.module('npmtApp', ['ui.router', 'isteven-multi-select', 'ngMessages']);
 
 npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider){
 	$locationProvider.html5Mode(false);

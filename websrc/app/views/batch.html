@@ -90,37 +90,55 @@
                 <h4 class="modal-title" id="addProductBatchModalLabel">添加产品批次</h4>
             </div>
             <div class="modal-body">
-                <div class="modal-row">
-                    <label for="productId">产品名称</label>
-                    <input type="text" id="productId" ng-model="addedProductBatch.name">
-                </div>
-                <div class="modal-row mb-20">
-                    <label for="cityId">可销售城市</label>
-                    <div class="isteven-multi-select-div ml-72" 
-                        isteven-multi-select
-                        input-model="modernBrowsers"
-                        output-model="outputBrowsers"
-                        button-label="icon name"
-                        item-label="icon name maker"
-                        tick-property="ticked"
-                    >
+                <form name="formRegister">
+                    <div class="modal-row">
+                        <label for="productId">产品名称</label>
+                        <input type="text" name="productId" id="productId" ng-model="addedProductBatch.name" ng-minlength="2" ng-maxlength="40" placeholder="请输入产品名称" required />
+                        <div class="error-messages" ng-messages="formRegister.productId.$error">
+                            <p ng-message="minlength">产品名称最小长度2</p>
+                            <p ng-message="maxlength">产品名称最大长度40</p>
+                            <p ng-message="required">产品名称必填</p>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-row">
-                    <label for="countId">数量</label>
-                    <input type="text" id="countId" ng-model="addedProductBatch.amount">
-                </div>
-                <div class="modal-row">
-                    <label for="descId">描述</label>
-                    <input type="text" id="descId" ng-model="addedProductBatch.description">
-                </div>
-                <div class="modal-row">
-                    <label><input class="custom-checkbox" type="checkbox" value="" ng-model="addedProductBatch.randomRedpacket">是否随机红包</label>
-                </div>
-                <div class="modal-row">
-                    <label for="amountId">平均红包金额（分）</label>
-                    <input type="text" id="amountId" ng-model="addedProductBatch.averageAmount">
-                </div>
+                    <div class="modal-row mb-20">
+                        <label for="cityId">可销售城市</label>
+                        <div class="isteven-multi-select-div ml-72" 
+                            isteven-multi-select
+                            input-model="modernBrowsers"
+                            output-model="outputBrowsers"
+                            button-label="icon name"
+                            item-label="icon name maker"
+                            tick-property="ticked"
+                        >
+                        </div>
+                    </div>
+                    <div class="modal-row">
+                        <label for="countId">产品数量（件）</label>
+                        <input type="text" name="countId" id="countId" ng-model="addedProductBatch.amount" ng-pattern="/^[1-9]\d*$/" placeholder="请输入产品数量" required />
+                        <div class="error-messages" ng-messages="formRegister.countId.$error">
+                            <p ng-message="pattern">产品数量只能为正整数</p>
+                            <p ng-message="required">产品数量必填</p>
+                        </div>
+                    </div>
+                    <div class="modal-row">
+                        <label for="descId">产品描述</label>
+                        <input type="text" name="descId" id="descId" ng-model="addedProductBatch.description" ng-maxlength="200" placeholder="请输入产品描述" />
+                        <div class="error-messages" ng-messages="formRegister.descId.$error">
+                            <p ng-message="maxlength">产品描述最大长度200</p>
+                        </div>
+                    </div>
+                    <div class="modal-row">
+                        <label><input class="custom-checkbox" type="checkbox" ng-model="addedProductBatch.randomRedpacket">随机红包</label>
+                    </div>
+                    <div class="modal-row" ng-hide="addedProductBatch.randomRedpacket" >
+                        <label for="amountId">平均红包金额（分）</label>
+                        <input type="text" name="amountId" id="amountId" ng-model="addedProductBatch.averageAmount" ng-pattern="/^[1-9]\d*$/" placeholder="请输入平均红包金额" required />
+                        <div class="error-messages" ng-messages="formRegister.amountId.$error">
+                            <p ng-message="pattern">金额只能为正整数</p>
+                            <p ng-message="required">当前为平均红包模式，金额必填</p>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"  ng-click="closeModal()">取消</button>
