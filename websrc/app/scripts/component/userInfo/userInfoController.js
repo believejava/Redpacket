@@ -2,11 +2,24 @@ angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope'
     function($http,$rootScope,$scope,userInfoService,appService) {
   
     $rootScope.selectedTitle = "用户信息管理";
+
+
+    $scope.maxSize = 3;
+ 	$scope.currentPage = 1;
+  	$scope.itemPerPage = 1;
+  	$scope.splitedWechatUserInfo = [];
+
+  	$scope.splitResults = function (results, itemPerPage){
+   		var splitedResults = [];
+   		for(var i = 0; i < results.length; i += itemPerPage)
+   			splitedResults.push(results.slice(i, i+itemPerPage));
+   		return splitedResults;
+    }
     
     $scope.getWechatUserInfo = function(){
       userInfoService.getWechatUserInfoServ().then(function(response){
 	   	if (response.status = 200 ) {
-	   		$scope.wechatUserInfo = response.data;
+	   		$scope.splitedWechatUserInfo = $scope.splitResults(response.data, $scope.itemPerPage);
 	   	}
 	  }, function (error) {
 	  	console.log(error);
@@ -32,12 +45,5 @@ angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope'
     $scope.getWechatUserInfo();
     $scope.getCityList();
 
- //   $scope.modernBrowsers = [
-	//  	{name: "Opera",	maker: "Opera Software",	ticked: true	},
-	//  	{name: "Internet Explorer",	maker: "Microsoft",	ticked: false	},
-	//  	{name: "Firefox",	maker: "Mozilla Foundation",	ticked: true	},
-	//  	{name: "Safari",	maker: "Apple",	ticked: false	},
-	//  	{name: "Chrome",	maker: "Google",	ticked: true	}
-	// ];
 
 }]);

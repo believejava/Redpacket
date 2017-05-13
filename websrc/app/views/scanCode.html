@@ -23,7 +23,7 @@
                     <th>用户已扫码</th>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="iterationProductDetails in allProductDetails | orderBy:'[name,productDetailNum]'">
+                    <tr ng-repeat="iterationProductDetails in splitedProductDetails[currentPage-1] | orderBy:'[name,productDetailNum]'">
                         <td  width="25%">{{iterationProductDetails.name}}</td>
                         <td  width="25%">{{iterationProductDetails.productDetailNum}}</td>
                         <td  width="25%"><input class="custom-checkbox" type="checkbox" value=""></td>
@@ -35,5 +35,6 @@
             </div>
             <div  class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
         </div>
-
-    </div>
+      <div class="pagination-results" uib-pagination total-items="allProductDetails.length" items-per-page="itemPerPage" ng-model="currentPage" max-size="maxSize" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true" boundary-link-numbers="false">
+      </div>
+</div>

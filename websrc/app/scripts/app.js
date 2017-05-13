@@ -1,5 +1,5 @@
 'use strict';
-var npmtApp = angular.module('npmtApp', ['ui.router', 'isteven-multi-select', 'ngMessages']);
+var npmtApp = angular.module('npmtApp', ['ui.router', 'isteven-multi-select', 'ngMessages','ui.bootstrap']);
 
 npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider){
 	$locationProvider.html5Mode(false);
@@ -26,6 +26,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
          }
     }).state('batch', {
         url : '/batch',
+        cache:false,
         templateUrl : "views/batch.html",
 		controller : "batchController",
         resolve: {

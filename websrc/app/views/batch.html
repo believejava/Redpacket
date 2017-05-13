@@ -29,7 +29,7 @@
                     <th>操作</th>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="batch in batchInfo track by $index">
+                    <tr ng-repeat="batch in splitedBatchInfo[currentPage-1]">
                         <td width="25%">{{batch.name}}</td>
                         <td  width="20%">{{batch.allowSellCities | allowedCityFilter}}</td>
                         <td  width="15%">{{batch.amount}}</td>
@@ -67,18 +67,18 @@
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->
-                            </div>
-
                         </td>
                     </tr>
-
-
                 </tbody>
             </table>
         </div>
         <div  class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
     </div>
-</div>
+
+    <div class="pagination-results" uib-pagination total-items="splitedBatchInfo.length" items-per-page="itemPerPage" ng-model="currentPage" max-size="maxSize" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true" boundary-link-numbers="false">
+    </div>
+  
+</div>   
 
 
     <!-- add product batch Modal -->

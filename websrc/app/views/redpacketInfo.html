@@ -27,7 +27,7 @@
                     <th>相应产品</th>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="redpacket in rdpacketInfo | orderBy:'createDateTime':false">
+                    <tr ng-repeat="redpacket in splitedRdpacketInfo[currentPage-1] | orderBy:'createDateTime':false">
                         <td width="25%">{{redpacket.wechatNickname}}</td>
                         <td  width="25%">{{redpacket.amount}}</td>
                         <td  width="25%">{{redpacket.createDateTime | date:'yyyy-MM-dd' }}</td>
@@ -39,4 +39,8 @@
             </div>
             <div  class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
     </div>
+
+    <div class="pagination-results" uib-pagination total-items="splitedRdpacketInfo.length" items-per-page="itemPerPage" ng-model="currentPage" max-size="maxSize" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true" boundary-link-numbers="false">
+    </div>
+
 </div>

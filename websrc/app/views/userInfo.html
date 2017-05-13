@@ -31,7 +31,7 @@
                 <th>操作</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="userInfo in wechatUserInfo">
+                <tr ng-repeat="userInfo in splitedWechatUserInfo[currentPage-1]">
                     <td width="25%">{{userInfo.nickname}}</td>
                     <td  width="25%">{{userInfo.sex}}</td>
                     <td  width="25%">{{userInfo.actualCity}}</td>
@@ -75,5 +75,8 @@
             </table>
         </div>
         <div  class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+    </div>
+
+     <div class="pagination-results" uib-pagination total-items="splitedWechatUserInfo.length" items-per-page="itemPerPage" ng-model="currentPage" max-size="maxSize" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true" boundary-link-numbers="false">
     </div>
 </div>
