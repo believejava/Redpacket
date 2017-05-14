@@ -4,8 +4,8 @@ angular.module('npmtApp').controller('redpacketInfoController',['$http', '$rootS
 
 	$scope.maxSize = 3;
  	$scope.currentPage = 1;
-  	$scope.itemPerPage = 1;
-  	$scope.splitedRdpacketInfo = [];
+  $scope.itemPerPage = 1;
+  $scope.splitedRdpacketInfo = [];
 
   	$scope.splitResults = function (results, itemPerPage){
    		var splitedResults = [];

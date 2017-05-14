@@ -1,5 +1,5 @@
-angular.module('npmtApp').factory('appService', ['$http', '$interval',
-	function($http, $interval) {
+angular.module('npmtApp').factory('appService', ['$http', '$interval','BATH_PATH',
+	function($http, $interval,BATH_PATH) {
 		var o = {
 			tokenResponse: null,
 			getToken: function() {	
@@ -10,7 +10,7 @@ angular.module('npmtApp').factory('appService', ['$http', '$interval',
 					return this.promise;
 				}
 				if (!this.tokenResponse || ((now - this.tokenResponse.timestamp) / 1000 >= this.tokenResponse.expires_in)) {
-					var tokenurl = 'http://localhost:8080/api/auth/login';
+					var tokenurl = BATH_PATH +'auth/login';
 					var tokenHeader = {
 						'Content-Type': 'application/json; charset=UTF-8',
 						'Accept': 'application/json;'
@@ -44,7 +44,7 @@ angular.module('npmtApp').factory('appService', ['$http', '$interval',
 
 			},
             getCityListServ: function(){
-                var url = "http://localhost:8080/api/city/";
+                var url = BATH_PATH + "city/";
                 var promise = $http({
                     method: 'GET',
                     url: url

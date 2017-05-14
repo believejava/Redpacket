@@ -4,7 +4,7 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     $scope.modernBrowsers = [];
 
 
-    $scope.maxSize = 3;
+    $scope.maxSize = 2;
     $scope.currentPage = 1;
     $scope.itemPerPage = 1;
      

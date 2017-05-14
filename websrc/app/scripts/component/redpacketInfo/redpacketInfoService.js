@@ -1,9 +1,9 @@
-angular.module('npmtApp').factory('redpacketInfoService',['$http', '$rootScope',
-    function($http,$rootScope) {
+angular.module('npmtApp').factory('redpacketInfoService',['$http', '$rootScope','BATH_PATH',
+    function($http,$rootScope,BATH_PATH) {
    
     	return {
     		getRedpacketInfoServ: function(){
-    			var url = "http://localhost:8080/api/redPacket/";
+    			var url = BATH_PATH + "redPacket/";
     			var promise = $http({
     				method: 'GET',
     				url: url

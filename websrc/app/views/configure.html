@@ -1,3 +1,30 @@
 <div class="container-fluid">
-
+	<!-- <div class="row search-term">
+        <div  class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <label for="userId">用户</label>
+            <input type="text" id="userId">
+        </div>
+        <div  class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <label for="timeId">领取时间</label>
+            <input type="text" id="timeId">
+        </div>
+        <div  class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <label for="productId">相应产品</label>
+            <input type="text" id="productId">
+        </div>
+        <div  class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <button class="btn btn-large btn-detail" type="button">查询</button>
+        </div>
+    </div> -->
+    <div>
+    	<div  class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+        <div  class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        	<ul class="list-group config-items">
+			  <li class="list-group-item list-group-item-success">红包最小值（分 ）： <input type="text" name="minRedpacketAmount" ng-model="configInfo[0].value"  ng-disabled="true" /></li>
+			  <li class="list-group-item list-group-item-info">红包最大值（分）： <input type="text" name="maxRedpacketAmount" ng-model="configInfo[1].value"  ng-disabled="true" /></li>
+			  <li class="list-group-item list-group-item-warning">是否限制城市： <input type="text" name="forceCityCheck" ng-model="configInfo[2].value | isSelectedFilter"  ng-disabled="true" /></li>
+			</ul>
+        </div>
+        <div  class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+    </div>
 </div>

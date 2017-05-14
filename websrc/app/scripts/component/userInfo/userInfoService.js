@@ -1,9 +1,9 @@
-angular.module('npmtApp').factory('userInfoService',['$http', '$rootScope','$state',
-    function($http,$rootScope,$state) {
+angular.module('npmtApp').factory('userInfoService',['$http', '$rootScope','$state','BATH_PATH',
+    function($http,$rootScope,$state,BATH_PATH) {
    
     	return {
     		getWechatUserInfoServ: function(){
-    			var url = "http://localhost:8080/api/wechatUser/";
+    			var url = BATH_PATH + "wechatUser/";
     			var promise = $http({
     				method: 'GET',
     				url: url

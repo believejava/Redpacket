@@ -1,9 +1,9 @@
-angular.module('npmtApp').factory('batchService',['$http', '$rootScope','$state',
-    function($http,$rootScope,$state) {
+angular.module('npmtApp').factory('batchService',['$http', '$rootScope','$state','BATH_PATH',
+    function($http,$rootScope,$state,BATH_PATH) {
    
     	return {
     		getProductbatchServ: function(){
-    			var url = "http://localhost:8080/api/product/";
+    			var url = BATH_PATH + "product/";
     			var promise = $http({
     				method: 'GET',
     				url: url
@@ -13,7 +13,7 @@ angular.module('npmtApp').factory('batchService',['$http', '$rootScope','$state'
     		},
 
             addProductBatchServ: function(params){
-                var url = "http://localhost:8080/api/product/";
+                var url = BATH_PATH + "product/";
                 var promise = $http({
                     method: 'POST',
                     url: url,
