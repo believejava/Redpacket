@@ -1,5 +1,5 @@
-angular.module('npmtApp').controller('scancodeController',['$http', '$rootScope', '$scope','scancodeService',
-    function($http,$rootScope,$scope,scancodeService) {
+angular.module('npmtApp').controller('scancodeController',['$http', '$rootScope', '$scope','scancodeService','$timeout','$state',
+    function($http,$rootScope,$scope,scancodeService,$timeout,$state) {
    $rootScope.selectedTitle = "产品扫描管理";
 
 
@@ -102,8 +102,18 @@ angular.module('npmtApp').controller('scancodeController',['$http', '$rootScope'
     }
 
     $scope.saveRedpaccketPermission = function (currentPage) {
+      console.log($scope.splitedProductDetails[currentPage-1]);
     	$scope.editable = false;
     	$scope.switchButtonFun = true;
+      scancodeService.updateEnableScanServ($scope.splitedProductDetails[currentPage-1]).then(function(response){
+      if (response.status = 200 ) {
+          $timeout(function () {
+            $state.reload();
+          },800);
+      }
+    }, function (error) {
+      console.log(error);
+    });
     	
     }
 

@@ -20,7 +20,7 @@ angular.module('npmtApp').filter('isSelectedFilter',function(){
 		if(input)
 			output = "是";
 		else
-			output = "否"
+			output = "否";
 		return output;
 	}
 });
