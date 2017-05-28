@@ -59,7 +59,10 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
         "averageAmount": null,
         "description": "",
         "name": "",
-        "randomRedpacket":false
+        "forceCityCheck": false,
+        "randomRedpacket":false,
+        "randomMinAmount": 1,
+        "randomMaxAmount": 1000
     };
     $scope.addProductBatch = function(tempProductBatch){
 
@@ -69,7 +72,10 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
           "averageAmount": $scope.addedProductBatch.averageAmount,
           "description": $scope.addedProductBatch.description || "",
           "name": $scope.addedProductBatch.name,
-          "randomRedpacket": $scope.addedProductBatch.randomRedpacket
+          "forceCityCheck": $scope.addedProductBatch.forceCityCheck,
+          "randomRedpacket": $scope.addedProductBatch.randomRedpacket,
+          "randomMinAmount": $scope.addedProductBatch.randomMinAmount,
+          "randomMaxAmount": $scope.addedProductBatch.randomMaxAmount
         };
 
         batchService.addProductBatchServ(tempProductBatch).then(function(response){
@@ -80,7 +86,10 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
               "averageAmount": null,
               "description": "",
               "name": "",
-              "randomRedpacket":false
+              "forceCityCheck": false,
+              "randomRedpacket":false,
+              "randomMinAmount": 1,
+              "randomMaxAmount": 1000
             };
             $('#addProductBatch').modal('hide');
             $timeout(function () {
@@ -100,7 +109,10 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
           "averageAmount": null,
           "description": "",
           "name": "",
-          "randomRedpacket":false
+          "forceCityCheck": false,
+          "randomRedpacket":false,
+          "randomMinAmount": 1,
+          "randomMaxAmount": 1000
         };
         $('#addProductBatch').modal('hide');
     }

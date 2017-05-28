@@ -100,7 +100,10 @@
                             <p ng-message="required">产品名称必填</p>
                         </div>
                     </div>
-                    <div class="modal-row mb-20">
+                    <div class="modal-row">
+                        <label><input class="custom-checkbox" type="checkbox" ng-model="addedProductBatch.forceCityCheck">城市限制</label>
+                    </div>
+                    <div class="modal-row mb-20" ng-hide="!addedProductBatch.forceCityCheck">
                         <label for="cityId">可销售城市</label>
                         <div class="isteven-multi-select-div ml-72" 
                             isteven-multi-select
@@ -129,6 +132,20 @@
                     </div>
                     <div class="modal-row">
                         <label><input class="custom-checkbox" type="checkbox" ng-model="addedProductBatch.randomRedpacket">随机红包</label>
+                    </div>
+                    <div class="modal-row" ng-hide="!addedProductBatch.randomRedpacket">
+                        <label for="randomMinAmountId">最小金额（分）</label>
+                        <input type="text" name="randomMinAmountId" id="randomMinAmountId" ng-model="addedProductBatch.randomMinAmount" ng-pattern="/^[1-9]\d*$/" placeholder="请输入最小红包金额" />
+                        <div class="error-messages mt-24" ng-messages="formRegister.randomMinAmount.$error">
+                            <p ng-message="pattern">金额只能为正整数</p>
+                        </div>
+                    </div>
+                    <div class="modal-row" ng-hide="!addedProductBatch.randomRedpacket">
+                        <label for="randomMaxAmountId">最大金额（分）</label>
+                        <input type="text" name="randomMaxAmountId" id="randomMaxAmountId" ng-model="addedProductBatch.randomMaxAmount" ng-pattern="/^[1-9]\d*$/" placeholder="请输入最大红包金额" />
+                        <div class="error-messages mt-24" ng-messages="formRegister.randomMaxAmount.$error">
+                            <p ng-message="pattern">金额只能为正整数</p>
+                        </div>
                     </div>
                     <div class="modal-row" ng-hide="addedProductBatch.randomRedpacket" >
                         <label for="amountId">平均红包金额（分）</label>

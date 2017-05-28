@@ -192,3 +192,7 @@ table thead th, tr{
     left: 160px;
     padding-left: 10px;
 }
+
+.mt-24 {
+  margin-top: 24px;
+}
