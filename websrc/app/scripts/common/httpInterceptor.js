@@ -39,12 +39,19 @@ app.factory('httpInterceptor', ['$timeout', '$q', '$rootScope', '$injector', '$s
 			},
 
 			// optional method
-			'responseError': function(rejection) {
-				console.timeEnd(rejection.config.url);
-				console.error(rejection);
+			'responseError':  function(rejection) { 
+			    console.timeEnd(rejection.config.url);
+				console.log(rejection);
 				console.debug('responseError:%s,%d', rejection.config.url, rejection.status);
-				return $q.reject(rejection);
-			}
+		        if (rejection.status == 401) {
+			        var rootScope = $injector.get('$rootScope'); 
+			        rootScope.showErrorLoginfo = true; 
+			        rootScope.$state.go("login"); 
+					return $q.reject(rejection);
+		        } else if (rejection.status === 404) {
+		          return $q.reject(rejection); 
+		        } 
+		      }
 		}
 	}
 ]);

@@ -124,3 +124,7 @@ body {
 .page-content-wrapper.toggled {
     margin-left: 0;
 }
+
+.page-content-wrapper.ml-0 {
+    margin-left: 0;
+}

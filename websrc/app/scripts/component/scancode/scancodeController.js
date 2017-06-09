@@ -1,5 +1,5 @@
-angular.module('npmtApp').controller('scancodeController',['$http', '$rootScope', '$scope','scancodeService','$timeout','$state',
-    function($http,$rootScope,$scope,scancodeService,$timeout,$state) {
+angular.module('npmtApp').controller('scancodeController',['$http', '$rootScope', '$scope','scancodeService','$timeout','$state','$location','$timeout',
+    function($http,$rootScope,$scope,scancodeService,$timeout,$state,$location,$timeout) {
    $rootScope.selectedTitle = "产品扫描管理";
 
 
@@ -119,5 +119,11 @@ angular.module('npmtApp').controller('scancodeController',['$http', '$rootScope'
 
 
 	$scope.productBatchInfo();
+
+  $timeout(function () {
+      $("#page-content-wrapper").removeClass("ml-0");
+      $('#scancode-id').addClass('active');
+      $('#scancode-id').siblings().removeClass('active');
+  },200);
 
 }]);

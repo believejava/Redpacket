@@ -1,5 +1,5 @@
-angular.module('npmtApp').controller('configureController',['$http', '$rootScope', '$scope','configureService',
-    function($http,$rootScope,$scope,configureService) {
+angular.module('npmtApp').controller('configureController',['$http', '$rootScope', '$scope','configureService','$location','$timeout',
+    function($http,$rootScope,$scope,configureService,$location,$timeout) {
    $rootScope.selectedTitle = "配置项管理";
 
 
@@ -14,6 +14,12 @@ angular.module('npmtApp').controller('configureController',['$http', '$rootScope
     }
 
     $scope.getConfigInfo();
+
+    $timeout(function () {
+          $("#page-content-wrapper").removeClass("ml-0");
+          $('#configure-id').addClass('active');
+          $('#configure-id').siblings().removeClass('active');
+    },200);
 
    
 }]);

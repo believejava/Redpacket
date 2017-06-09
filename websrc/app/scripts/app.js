@@ -1,5 +1,5 @@
 'use strict';
-var npmtApp = angular.module('npmtApp', ['ui.router', 'isteven-multi-select', 'ngMessages','ui.bootstrap']);
+var npmtApp = angular.module('npmtApp', ['ui.router', 'isteven-multi-select', 'ngMessages','ui.bootstrap','ngCookies']);
 
 npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider){
 	$locationProvider.html5Mode(false);
@@ -7,6 +7,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
 	$stateProvider.state('configure', {
 		url : '/configure',
 		templateUrl : "views/configure.html",
+        cache:false,
         controller : "configureController",
         resolve: {
             appService:'appService',
@@ -17,6 +18,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
 	}).state('scancode', {
         url : '/scancode',
         templateUrl : "views/scancode.html",
+        cache:false,
         controller : "scancodeController",
         resolve: {
             appService:'appService',
@@ -26,8 +28,8 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
          }
     }).state('batch', {
         url : '/batch',
-        cache:false,
         templateUrl : "views/batch.html",
+        cache:false,
 		controller : "batchController",
         resolve: {
             appService:'appService',
@@ -38,6 +40,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
     }).state('userInfo', {
         url : '/userinfo',
         templateUrl : "views/userInfo.html",
+        cache:false,
         controller : "userInfoController",
         resolve: {
             appService:'appService',
@@ -48,6 +51,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
     }).state('redpacketInfo', {
         url : '/redpacketinfo',
         templateUrl : "views/redpacketInfo.html",
+        cache:false,
         controller : "redpacketInfoController",
         resolve: {
             appService:'appService',
@@ -57,7 +61,9 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
          }
     }).state('login', {
         url : '/login',
-        templateUrl : "views/login.html"
+        templateUrl : "views/login.html",
+        cache:false,
+        controller : "loginController"
     });
 
 });

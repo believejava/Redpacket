@@ -1,5 +1,5 @@
-angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '$scope','$state','batchService','appService','businessModel','$timeout',
-    function($http,$rootScope,$scope,$state,batchService,appService,businessModel,$timeout) {
+angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '$scope','$state','batchService','appService','businessModel','$timeout','$location',
+    function($http,$rootScope,$scope,$state,batchService,appService,businessModel,$timeout,$location) {
     $rootScope.selectedTitle = "产品批次管理";
     $scope.modernBrowsers = [];
 
@@ -128,5 +128,12 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     }
 
     $scope.initBatch();
+
+    $timeout(function () {
+          $("#page-content-wrapper").removeClass("ml-0");
+          $('#batch-id').addClass('active');
+          $('#batch-id').siblings().removeClass('active');
+    },200);
+
 
 }]);

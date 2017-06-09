@@ -1,8 +1,7 @@
 .login {
-    position: relative;
-    top: -75px;
-    left: -10px;
-    width: 110%;
+    position: absolute;
+    top: -80px;
+    width: 100%;
     z-index: 2;
     background-color: rgba(0,0,0,0.7);
 }
@@ -93,10 +92,11 @@
 }
 
 .login button {
-    color: #FFF;
     width: 354px;
     height: 45px;
     font-size: 1.25rem;
+    margin-top: 18px;
+    color: #FFF;
     border-radius: 0;
     background-color: #15AD9E;
 }
@@ -139,6 +139,15 @@
 .login .checkbox {
     margin-left: 19px;
     margin-bottom: 34px;
+}
+
+.login .error-loginfo {
+    position: absolute;
+    top: 250px;
+    height: 30px;
+    line-height: 30px;
+    color: brown;
+    font-size: 16px;
 }
 
 .login-check {
@@ -191,4 +200,10 @@
             filter: blur(10px);
     
     filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+
+@media screen and (max-width: 1024px) {
+    .login {
+        width: 1024px;
+    }
 }

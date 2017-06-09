@@ -1,5 +1,5 @@
-angular.module('npmtApp').factory('appService', ['$http', '$interval','BATH_PATH',
-	function($http, $interval,BATH_PATH) {
+angular.module('npmtApp').factory('appService', ['$http','$rootScope', '$interval','BATH_PATH','$cookies',
+	function($http,$rootScope,$interval,BATH_PATH,$cookies) {
 		var o = {
 			tokenResponse: null,
 			getToken: function() {	
@@ -16,8 +16,8 @@ angular.module('npmtApp').factory('appService', ['$http', '$interval','BATH_PATH
 						'Accept': 'application/json;'
 					};
 					var tokenParameter = {
-						username: "liudonghua",
-						password: "liudonghua"
+						username: $cookies.get('username'),
+						password: $cookies.get('password')
 					}
 
 					this.promise = $http({

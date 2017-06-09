@@ -1,11 +1,11 @@
-angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope', '$scope','userInfoService','appService',
-    function($http,$rootScope,$scope,userInfoService,appService) {
+angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope', '$scope','userInfoService','appService','$location','$timeout',
+    function($http,$rootScope,$scope,userInfoService,appService,$location,$timeout) {
   
     $rootScope.selectedTitle = "用户信息管理";
 
 
     $scope.maxSize = 3;
- 	$scope.currentPage = 1;
+ 	  $scope.currentPage = 1;
   	$scope.itemPerPage = 1;
   	$scope.splitedWechatUserInfo = [];
 
@@ -45,5 +45,10 @@ angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope'
     $scope.getWechatUserInfo();
     $scope.getCityList();
 
+    $timeout(function () {
+      $("#page-content-wrapper").removeClass("ml-0");
+      $('#userinfo-id').addClass('active');
+      $('#userinfo-id').siblings().removeClass('active');
+    },200);
 
 }]);

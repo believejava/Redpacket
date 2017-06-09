@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="npmtApp"  ng-controller="basicController">
+<html>
 <head>
     <!-- <base href="/services/practitionerportal/assethub/services/core/pmt/"/> -->
     <meta charset="utf-8">
@@ -23,6 +23,7 @@
     <script src="../bower_components/isteven-angular-multiselect/isteven-multi-select.js"></script>
     <script src="../bower_components/angular-messages/angular-messages.js"></script>
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="scripts/app.js"></script>
 
     <script src="scripts/common/appService.js"></script>
@@ -35,6 +36,9 @@
     <script src="scripts/common/businessModel.js"></script>
     
     <script src="scripts/component/basicController.js"></script>
+
+    <script src="scripts/component/login/loginController.js"></script>
+    <script src="scripts/component/login/loginService.js"></script>
     
     <script src="scripts/component/configure/configureController.js"></script>
     <script src="scripts/component/configure/configureService.js"></script>
@@ -51,10 +55,10 @@
     <script src="scripts/component/userInfo/userInfoController.js"></script>
     <script src="scripts/component/userInfo/userInfoService.js"></script>
 </head>
-<body>
+<body ng-app="npmtApp"  ng-controller="basicController">
 
 <div ng-include="'views/slide.html'"></div>
-<div id="page-content-wrapper" class="page-content-wrapper">
+<div id="page-content-wrapper" class="page-content-wrapper ml-0">
        <div ui-view></div>
 </div>
 

@@ -1,11 +1,10 @@
 angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '$scope','$timeout','$location','$state','appService',
     function($http,$rootScope,$scope,$timeout,$location,$state,appService) {
+    // $scope.initPro = function () {
+    //     appService.getToken();
+    // };
 
-    $scope.initPro = function () {
-        appService.getToken();
-    };
-
-    $scope.initPro();
+    //$scope.initPro();
 
     $timeout(function () {
 
@@ -31,13 +30,12 @@ angular.module('npmtApp').controller('basicController',['$http', '$rootScope', '
     var currentNavArr = $location.path().split("/");
     var currentPrimaryNav = currentNavArr[currentNavArr.length-1];
     if(currentPrimaryNav === "login"){
-        $("#page-content-wrapper").removeClass("page-content-wrapper");
+        $("#page-content-wrapper").addClass("ml-0");
     } else {
-        $("#page-content-wrapper").addClass("page-content-wrapper");
+        $("#page-content-wrapper").removeClass("ml-0");
     }
     var selectedPrimaryNav = $('#'+currentPrimaryNav+"-id");
     selectedPrimaryNav.addClass('active');
-
     $primaryNav.on('click','li',function (event) {
         event.stopPropagation();
         $(this).addClass('active');
