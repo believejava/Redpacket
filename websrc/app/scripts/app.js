@@ -5,7 +5,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
 	$locationProvider.html5Mode(false);
 	$urlRouterProvider.otherwise('/batch');
 	$stateProvider.state('configure', {
-		url : '/configure',
+		url : '/admin/configure',
 		templateUrl : "views/configure.html",
         cache:false,
         controller : "configureController",
@@ -16,7 +16,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
             }
          }
 	}).state('scancode', {
-        url : '/scancode',
+        url : '/admin/scancode',
         templateUrl : "views/scancode.html",
         cache:false,
         controller : "scancodeController",
@@ -27,7 +27,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
             }
          }
     }).state('batch', {
-        url : '/batch',
+        url : '/admin/batch',
         templateUrl : "views/batch.html",
         cache:false,
 		controller : "batchController",
@@ -38,7 +38,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
             }
          }
     }).state('userInfo', {
-        url : '/userinfo',
+        url : '/admin/userinfo',
         templateUrl : "views/userInfo.html",
         cache:false,
         controller : "userInfoController",
@@ -49,7 +49,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
             }
          }
     }).state('redpacketInfo', {
-        url : '/redpacketinfo',
+        url : '/admin/redpacketinfo',
         templateUrl : "views/redpacketInfo.html",
         cache:false,
         controller : "redpacketInfoController",
@@ -60,7 +60,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
             }
          }
     }).state('login', {
-        url : '/login',
+        url : '/admin/login',
         templateUrl : "views/login.html",
         cache:false,
         controller : "loginController"

@@ -3,8 +3,7 @@
 module.exports = function(grunt){
 	var appConfig = {
 		app: require('./bower.json').appPath || 'app',
-		dist: '../src/main/webapp',
-		bowerPath: './bower_components'
+		dist: '../src/main/webapp/admin',
 	};
 
 	require('time-grunt')(grunt);
@@ -60,8 +59,8 @@ module.exports = function(grunt){
             return [
               connect.static('.tmp'),
               connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
+                '/app/bower_components',
+                connect.static('./app/bower_components')
               ),
               connect().use(
                 '/app/styles',
@@ -80,8 +79,8 @@ module.exports = function(grunt){
               connect.static('.tmp'),
               connect.static('test'),
               connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
+                '/app/bower_components',
+                connect.static('./app/bower_components')
               ),
               connect.static(appConfig.app)
             ];
@@ -122,9 +121,9 @@ module.exports = function(grunt){
 				}, {
 					expand: true,
 					cwd: '<%= appConfig.bowerPath %>',
-					//cwd: './bower_components',
+					//cwd: './app/bower_components',
 					//cwd: '<%= appConfig.app %>',
-					dest: '<%= appConfig.dist %>/bower_components',
+					dest: '<%= appConfig.dist %>/app/bower_components',
 					src: [
 						'**/*'
 					]
