@@ -195,3 +195,14 @@ table thead th, tr{
 .mt-24 {
   margin-top: 24px;
 }
+
+.configure tr td.desc-name {
+  vertical-align: middle;
+  font-weight: 600;
+}
+
+.configure tr input {
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+}

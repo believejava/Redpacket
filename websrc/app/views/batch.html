@@ -36,6 +36,7 @@
                         <td  width="20%">{{batch.description}}</td>
                         <td  width="20%">
                             <button class="btn btn-large btn-detail" data-toggle="modal" ng-click="openDetailModal(batch.productDetails)">详情</button>
+                            <button class="btn btn-large btn-detail" data-toggle="modal" ng-click="downloadQRInfo(batch.productDetails)">下载二维码</button>
                             <!-- <button class="btn btn-large btn-danger" type="button">删除</button> -->
                                 <!-- add product batch Modal -->
                             <div class="modal fade" id="{{batch.productDetails[0].productId}}_product_detail" tabindex="-1" role="dialog" aria-labelledby="productDetailModalLabel" aria-hidden="true">

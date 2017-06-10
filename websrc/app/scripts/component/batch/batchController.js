@@ -1,5 +1,5 @@
-angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '$scope','$state','batchService','appService','businessModel','$timeout','$location',
-    function($http,$rootScope,$scope,$state,batchService,appService,businessModel,$timeout,$location) {
+angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '$scope','$state','batchService','appService','businessModel','$timeout','$location','BATH_PATH','$cookies',
+    function($http,$rootScope,$scope,$state,batchService,appService,businessModel,$timeout,$location,BATH_PATH,$cookies) {
     $rootScope.selectedTitle = "产品批次管理";
     $scope.modernBrowsers = [];
 
@@ -40,6 +40,11 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
 
     $scope.openDetailModal = function(productDetail){
         $('#'+productDetail[0].productId+'_product_detail').modal('show')
+    }
+
+    $scope.downloadQRInfo = function(productDetail){
+        var url = BATH_PATH + "product/scanUrlFile/"+productDetail[0].productId+".txt?token="+$cookies.get('token');
+        window.location.href= url;
     }
 
     $scope.getSelectedCityList = function (selectedCity) {

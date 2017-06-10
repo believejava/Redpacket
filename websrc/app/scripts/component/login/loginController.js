@@ -15,7 +15,7 @@ angular.module('npmtApp').controller('loginController',['$http', '$rootScope', '
           if (response.status === 200) {
             $cookies.put("username", $scope.userInfo.username);
             $cookies.put("password", $scope.userInfo.password);
-            $rootScope.token = response.token;
+            $cookies.put("token", response.data.token);
             $timeout(function () {
               $("#page-content-wrapper").removeClass("ml-0");
               $state.go('batch',{}, {reload: true});
