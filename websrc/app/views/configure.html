@@ -19,10 +19,8 @@
     <div>
     	<div  class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
         <div  class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        	<ul class="list-group config-items">
-			  <li class="list-group-item list-group-item-success">红包最小值（分 ）： <input type="text" name="minRedpacketAmount" ng-model="configInfo[0].value"  ng-disabled="true" /></li>
-			  <li class="list-group-item list-group-item-info">红包最大值（分）： <input type="text" name="maxRedpacketAmount" ng-model="configInfo[1].value"  ng-disabled="true" /></li>
-			  <li class="list-group-item list-group-item-warning">是否限制城市： <input type="text" name="forceCityCheck" ng-value="configInfo[2].value | isSelectedFilter"  ng-disabled="true" /></li>
+        	<ul class="list-group config-items" ng-repeat="item in configInfo">
+			  <li class="list-group-item list-group-item-success">{{item.description}}： <input type="text" name="minRedpacketAmount" ng-model="item.value"  ng-disabled="true" /></li>
 			</ul>
         </div>
         <div  class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
