@@ -4,6 +4,7 @@ module.exports = function(grunt){
 	var appConfig = {
 		app: require('./bower.json').appPath || 'app',
 		dist: '../src/main/webapp/admin',
+		bowerPath: './app/bower_components'
 	};
 
 	require('time-grunt')(grunt);
