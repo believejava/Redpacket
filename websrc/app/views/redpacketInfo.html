@@ -30,7 +30,7 @@
                     <tr ng-repeat="redpacket in splitedRdpacketInfo[currentPage-1] | orderBy:'createDateTime':false">
                         <td width="25%">{{redpacket.wechatNickname}}</td>
                         <td  width="25%">{{redpacket.amount}}</td>
-                        <td  width="25%">{{redpacket.createDateTime | date:'yyyy-MM-dd' }}</td>
+                        <td  width="25%">{{redpacket.createDateTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
                         <td  width="25%">{{redpacket.productDetail.productName}}</td>
                     </tr>
 
