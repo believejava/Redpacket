@@ -44,9 +44,10 @@ app.factory('httpInterceptor', ['$timeout', '$q', '$rootScope', '$injector', '$s
 				console.log(rejection);
 				console.debug('responseError:%s,%d', rejection.config.url, rejection.status);
 		        if (rejection.status == 401) {
-			        var rootScope = $injector.get('$rootScope'); 
+			       	var rootScope = $injector.get('$rootScope'); 
 			        rootScope.showErrorLoginfo = true; 
-			        rootScope.$state.go("login"); 
+			        var state = $injector.get('$state'); 
+			        state.go("login"); 
 					return $q.reject(rejection);
 		        } else if (rejection.status === 404) {
 		          return $q.reject(rejection); 
