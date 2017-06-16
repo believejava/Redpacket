@@ -3,7 +3,7 @@ var npmtApp = angular.module('npmtApp', ['ui.router', 'isteven-multi-select', 'n
 
 npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider){
 	$locationProvider.html5Mode(false);
-	$urlRouterProvider.otherwise('/batch');
+	$urlRouterProvider.otherwise('/admin/login');
 	$stateProvider.state('configure', {
 		url : '/admin/configure',
 		templateUrl : "views/configure.html",
@@ -17,7 +17,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
          }
 	}).state('scancode', {
         url : '/admin/scancode',
-        templateUrl : "views/scancode.html",
+        templateUrl : "views/scan-code.html",
         cache:false,
         controller : "scancodeController",
         resolve: {
@@ -39,7 +39,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
          }
     }).state('userInfo', {
         url : '/admin/userinfo',
-        templateUrl : "views/userInfo.html",
+        templateUrl : "views/user-info.html",
         cache:false,
         controller : "userInfoController",
         resolve: {
@@ -50,7 +50,7 @@ npmtApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loca
          }
     }).state('redpacketInfo', {
         url : '/admin/redpacketinfo',
-        templateUrl : "views/redpacketInfo.html",
+        templateUrl : "views/redpacket-info.html",
         cache:false,
         controller : "redpacketInfoController",
         resolve: {

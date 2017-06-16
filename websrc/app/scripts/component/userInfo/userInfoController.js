@@ -4,9 +4,10 @@ angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope'
     $rootScope.selectedTitle = "用户信息管理";
 
 
-    $scope.maxSize = 3;
- 	  $scope.currentPage = 1;
-  	$scope.itemPerPage = 1;
+     $scope.maxSize = 3;
+     $scope.currentPage = 1;
+     $scope.itemPerPage = 12;
+
   	$scope.splitedWechatUserInfo = [];
 
   	$scope.splitResults = function (results, itemPerPage){

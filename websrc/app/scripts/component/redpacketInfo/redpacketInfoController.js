@@ -1,10 +1,11 @@
 angular.module('npmtApp').controller('redpacketInfoController',['$http', '$rootScope', '$scope','redpacketInfoService','$location','$timeout',
     function($http,$rootScope,$scope,redpacketInfoService,$location,$timeout) {
 	$rootScope.selectedTitle = "红包信息管理";
+  
+   $scope.maxSize = 3;
+   $scope.currentPage = 1;
+   $scope.itemPerPage = 12;
 
-	$scope.maxSize = 3;
- 	$scope.currentPage = 1;
-  $scope.itemPerPage = 1;
   $scope.splitedRdpacketInfo = [];
 
 	$scope.splitResults = function (results, itemPerPage){
