@@ -11,6 +11,16 @@ angular.module('npmtApp').factory('configureService',['$http', '$rootScope','$st
     			
     			return promise;
     		},
+            updateConfigInfoServ: function(params){
+                var url = BATH_PATH + "option/" + params.id;
+                var promise = $http({
+                    method: 'PUT',
+                    url: url,
+                    data: JSON.stringify(params)
+                });
+                
+                return promise;
+            }
  
         }
     }]);

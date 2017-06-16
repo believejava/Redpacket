@@ -1,7 +1,48 @@
-angular.module('npmtApp').controller('configureController',['$http', '$rootScope', '$scope','configureService','$location','$timeout',
-    function($http,$rootScope,$scope,configureService,$location,$timeout) {
+angular.module('npmtApp').controller('configureController',['$http', '$rootScope', '$scope','configureService','$location','$timeout','$state',
+    function($http,$rootScope,$scope,configureService,$location,$timeout,$state) {
    $rootScope.selectedTitle = "配置项管理";
 
+    $scope.switchButtonFun = true;
+    $scope.original_item = {
+        "description": "",
+        "enable": null,
+        "id": null,
+        "name": "",
+        "value": null
+      }
+
+    $scope.editConfig = function(item) {
+      $scope.switchButtonFun = false;
+      $("#"+item.id+"_id").attr("disabled", false);
+      angular.copy(item, $scope.original_item);
+    }
+
+    $scope.saveConfig = function(item) {
+      $scope.switchButtonFun = true;
+      var tmpItem = {
+        "description": item.description,
+        "enable": $scope.original_item.enable,
+        "id": item.id,
+        "name": item.name,
+        "value": item.value
+      }
+
+      configureService.updateConfigInfoServ(tmpItem).then(function(response){
+          if (response.status = 200 ) {
+          
+          }
+        }, function (error) {
+          console.log(error);
+        });
+
+      $("#"+item.id+"_id").attr("disabled", true);
+    }
+
+    $scope.revertConfig = function(item) {
+      $scope.switchButtonFun = true;
+      item.value = $scope.original_item.value;
+      $("#"+item.id+"_id").attr("disabled", true);
+    }
 
    	$scope.getConfigInfo = function(){
       configureService.getConfigInfoServ().then(function(response){

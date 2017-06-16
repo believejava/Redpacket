@@ -94,6 +94,12 @@ body {
   outline: 0 !important;
 }
 
+
+.modal-content-logout {
+    height: 40px;
+    line-height: 40px;
+}
+
 .custom-checkbox {
   width: 25px;
   height: 25px;

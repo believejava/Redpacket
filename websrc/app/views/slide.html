@@ -5,11 +5,9 @@
         </span>
         <span><h4>{{selectedTitle}}</h4></span>
         <span>
-
-            <img src="images/ww.jpg"/>
+            <img src="images/userimg.png" data-toggle="modal" data-target="#confirmLogout" />
         </span>
     </header>
-
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
     <h1 class="sidebar-brand">
@@ -50,3 +48,24 @@
     </div>
 </div>
 <!-- /#sidebar -->
+
+<!-- add product batch Modal -->
+<div class="modal fade" id="confirmLogout" tabindex="-1" role="dialog" aria-labelledby="confirmLogoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="confirmLogoutModalLabel">系统退出提示</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-row">
+                    <span class="modal-content-logout">确认要退出系统吗？</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"  ng-click="closeModal()">取消</button>
+                <button type="button" class="btn btn-detail" ng-click="logout('confirmLogout')">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
