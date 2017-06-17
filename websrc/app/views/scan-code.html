@@ -16,28 +16,24 @@
             </div>
         </div>
         <div class="row">
-            <div  class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-            <div  class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <th>产品名称</th>
-                    <th>产品编号</th>
-                    <th class="wrapped-layer"><input ng-show="editable" class="selecct-all custom-checkbox" type="checkbox" ng-model="select_all" ng-click="selectAll(currentPage)"/>用户可否领取红包</th>
-                    <th>用户已扫码</th>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="iterationProductDetails in splitedProductDetails[currentPage-1] | orderBy:'[name,productDetailNum]'">
-                        <td  width="25%">{{iterationProductDetails.name}}</td>
-                        <td  width="25%">{{iterationProductDetails.productDetailNum}}</td>
-                        <td  width="25%" ng-show="editable"><input class="custom-checkbox" type="checkbox" ng-model="iterationProductDetails.enable"  ng-click="selectOne(currentPage)" ></td>
-                        <td  width="25%" ng-show="!editable">{{iterationProductDetails.enable | isSelectedFilter}}</td>
-                        <td  width="25%">{{iterationProductDetails.scanned | isSelectedFilter}}</td>
-                    </tr>
+            <table class="table table-striped table-hover">
+                <thead>
+                <th>产品名称</th>
+                <th>产品编号</th>
+                <th class="wrapped-layer"><input ng-show="editable" class="selecct-all custom-checkbox" type="checkbox" ng-model="select_all" ng-click="selectAll(currentPage)"/>用户可否领取红包</th>
+                <th>用户已扫码</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="iterationProductDetails in splitedProductDetails[currentPage-1] | orderBy:'[name,productDetailNum]'">
+                    <td  width="25%">{{iterationProductDetails.name}}</td>
+                    <td  width="25%">{{iterationProductDetails.productDetailNum}}</td>
+                    <td  width="25%" ng-show="editable"><input class="custom-checkbox" type="checkbox" ng-model="iterationProductDetails.enable"  ng-click="selectOne(currentPage)" ></td>
+                    <td  width="25%" ng-show="!editable">{{iterationProductDetails.enable | isSelectedFilter}}</td>
+                    <td  width="25%">{{iterationProductDetails.scanned | isSelectedFilter}}</td>
+                </tr>
 
-                    </tbody>
-                </table>
-            </div>
-            <div  class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                </tbody>
+            </table>
         </div>
       <div class="pagination-results" uib-pagination total-items="allProductDetails.length" items-per-page="itemPerPage" ng-model="currentPage" max-size="maxSize" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true" boundary-link-numbers="false">
       </div>

@@ -17,28 +17,24 @@
         </div>
     </div> -->
     <div class="configure">
-    	<div  class="col-xs-1 col-sm-1 col-md-1 col-lg-3"></div>
-        <div  class="col-xs-10 col-sm-10 col-md-10 col-lg-6">
-            <table class="table table-striped table-hover">
-                    <thead>
-                    <th>配置描述</th>
-                    <th>配置值</th>
-                    <th>操作</th>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="item in configInfo">
-                        <td class="desc-name" width="25%">{{item.description}}</td>
-                        <td width="25%"><input id="{{item.id}}_id" type="text" name="minRedpacketAmount" ng-model="item.value"  disabled="true" /></td>
-                        <td class="desc-name" width="25%">
-                            <button ng-show="switchButtonFun" class="btn btn-large btn-detail" id="editeID" type="button" ng-click="editConfig(item)">编辑</button>
-                            <button ng-show="!switchButtonFun" class="btn btn-large btn-danger" id="saveID" type="button" ng-click="saveConfig(item)">保存</button>
-                            <button ng-show="!switchButtonFun" class="btn btn-large btn-danger" id="revertID" type="button" ng-click="revertConfig(item)">返回</button>
-                        </td>
-                    </tr>
+        <table class="table table-striped table-hover">
+            <thead>
+            <th>配置描述</th>
+            <th>配置值</th>
+            <th>操作</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in configInfo">
+                <td class="desc-name" width="25%">{{item.description}}</td>
+                <td width="25%"><input id="{{item.id}}_id" type="text" name="minRedpacketAmount" ng-model="item.value"  disabled="true" /></td>
+                <td class="desc-name" width="25%">
+                    <button id="{{item.id}}_editeID" class="btn btn-large btn-detail is-show" type="button" ng-click="editConfig(item)">编辑</button>
+                    <button id="{{item.id}}_saveID" class="btn btn-large btn-danger is-hide" type="button" ng-click="saveConfig(item)">保存</button>
+                    <button id="{{item.id}}_revertID" class="btn btn-large btn-danger is-hide" type="button" ng-click="revertConfig(item)">返回</button>
+                </td>
+            </tr>
 
-                    </tbody>
-            </table>
-        </div>
-        <div  class="col-xs-1 col-sm-1 col-md-1 col-lg-3"></div>
+            </tbody>
+        </table>
     </div>
 </div>

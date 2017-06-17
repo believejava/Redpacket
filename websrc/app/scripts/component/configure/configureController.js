@@ -14,6 +14,9 @@ angular.module('npmtApp').controller('configureController',['$http', '$rootScope
     $scope.editConfig = function(item) {
       $scope.switchButtonFun = false;
       $("#"+item.id+"_id").attr("disabled", false);
+      $("#"+item.id+"_editeID").removeClass("is-show").addClass("is-hide");
+      $("#"+item.id+"_saveID").removeClass("is-hide").addClass("is-show");
+      $("#"+item.id+"_revertID").removeClass("is-hide").addClass("is-show");
       angular.copy(item, $scope.original_item);
     }
 
@@ -35,12 +38,19 @@ angular.module('npmtApp').controller('configureController',['$http', '$rootScope
           console.log(error);
         });
 
+      $("#"+item.id+"_editeID").removeClass("is-hide").addClass("is-show");
+      $("#"+item.id+"_saveID").removeClass("is-show").addClass("is-hide");
+      $("#"+item.id+"_revertID").removeClass("is-show").addClass("is-hide");
       $("#"+item.id+"_id").attr("disabled", true);
     }
 
     $scope.revertConfig = function(item) {
       $scope.switchButtonFun = true;
       item.value = $scope.original_item.value;
+      
+      $("#"+item.id+"_editeID").removeClass("is-hide").addClass("is-show");
+      $("#"+item.id+"_saveID").removeClass("is-show").addClass("is-hide");
+      $("#"+item.id+"_revertID").removeClass("is-show").addClass("is-hide");
       $("#"+item.id+"_id").attr("disabled", true);
     }
 
