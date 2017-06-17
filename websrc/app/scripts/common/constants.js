@@ -1,4 +1,4 @@
-var windowURL = 'http://inthb.cn/:8000/api/';
+var windowURL = 'http://inthb.cn/api/';
 
 angular.module('npmtApp')
 	.constant('BATH_PATH', windowURL);
