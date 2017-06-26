@@ -18,6 +18,7 @@ angular.module('npmtApp').controller('redpacketInfoController',['$http', '$rootS
   $scope.getRedpacketInfo = function(){
     redpacketInfoService.getRedpacketInfoServ().then(function(response){
    	if (response.status = 200 ) {
+      $scope.totalItems = response.data.length;
    		$scope.splitedRdpacketInfo = $scope.splitResults(response.data, $scope.itemPerPage);
    	}
   }, function (error) {

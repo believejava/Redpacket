@@ -20,6 +20,7 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     $scope.productBatchInfo = function(){
         batchService.getProductbatchServ().then(function(response){
   	   	if (response.status = 200 ) {
+          $scope.totalItems = response.data.length;
           $scope.splitedBatchInfo = $scope.splitResults(response.data, $scope.itemPerPage);
   	   	}
     	  }, function (error) {

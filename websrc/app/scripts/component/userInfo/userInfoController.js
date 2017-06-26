@@ -20,6 +20,7 @@ angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope'
     $scope.getWechatUserInfo = function(){
       userInfoService.getWechatUserInfoServ().then(function(response){
 	   	if (response.status = 200 ) {
+        $scope.totalItems = response.data.length;
 	   		$scope.splitedWechatUserInfo = $scope.splitResults(response.data, $scope.itemPerPage);
 	   	}
 	  }, function (error) {
@@ -38,7 +39,9 @@ angular.module('npmtApp').controller('userInfoController',['$http', '$rootScope'
     }
 
       $scope.checkRedpackets = function(redPackets){
-      $('#'+redPackets[0].id+'_redpackets_detail').modal('show')
+        if (redPackets.length != 0) {
+          $('#'+redPackets[0].id+'_redpackets_detail').modal('show');
+        } 
     }
 
 
