@@ -27,7 +27,10 @@ angular.module('npmtApp').controller('scancodeController',['$http', '$rootScope'
       scancodeService.getProductbatchServ().then(function(response){
 	   	if (response.status = 200 ) {
 	   		var productResponse = response.data;
-        $scope.totalItems = productResponse.length;
+        $scope.totalItems = 0;
+        for(var i = 0; i < productResponse.length; i++){
+          $scope.totalItems += productResponse[i].productDetails.length;
+        }
 	   		for (var i = 0; i < productResponse.length; i++) {
 	   			for (var j = 0; j < productResponse[i].productDetails.length; j++) {
 	   				var tempProduct = {};

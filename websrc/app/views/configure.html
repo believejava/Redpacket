@@ -26,7 +26,13 @@
             <tbody>
             <tr ng-repeat="item in configInfo">
                 <td class="desc-name" width="25%">{{item.description}}</td>
-                <td width="25%"><input id="{{item.id}}_id" type="text" name="minRedpacketAmount" ng-model="item.value"  disabled="true" /></td>
+                <td width="25%">
+                    <input ng-if="item.id!==5" id="{{item.id}}_id" type="text" ng-model="item.value"  disabled="true" />
+                    <select class="config-select" ng-if="item.id===5" id="{{item.id}}_id" ng-model="item.value" disabled="true">
+                        <option value="true" ng-selected="item.value===true">是</option>  
+                        <option value="false" ng-selected="item.value===false">否</option>  
+                    </select>
+                </td>
                 <td class="desc-name" width="25%">
                     <button id="{{item.id}}_editeID" class="btn btn-large btn-detail is-show" type="button" ng-click="editConfig(item)">编辑</button>
                     <button id="{{item.id}}_saveID" class="btn btn-large btn-danger is-hide" type="button" ng-click="saveConfig(item)">保存</button>

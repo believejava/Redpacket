@@ -217,3 +217,8 @@ table thead th, tr{
   display: none;
 }
 
+.config-select {
+    height: 34px;
+    width: 80px;
+    background-color: rgb(235, 235, 228);
+}
