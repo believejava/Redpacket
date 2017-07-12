@@ -25,11 +25,11 @@
                 <th>相应产品</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="redpacket in splitedRdpacketInfo[currentPage-1] | orderBy:'createDateTime':false">
+                <tr ng-repeat="redpacket in splitedRdpacketInfo[currentPage-1] | orderBy:'createDateTime':true">
                     <td width="25%">{{redpacket.wechatNickname}}</td>
                     <td  width="25%">{{redpacket.amount}}</td>
                     <td  width="25%">{{redpacket.createDateTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
-                    <td  width="25%">{{redpacket.productDetail.productDetailProductName}}</td>
+                    <td  width="25%">{{redpacket.productDetailProductName}}</td>
                 </tr>
 
                 </tbody>
