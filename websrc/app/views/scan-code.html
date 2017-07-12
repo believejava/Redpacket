@@ -25,7 +25,7 @@
                 <th>最后修改时间</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="iterationProductDetails in splitedProductDetails[currentPage-1] | orderBy:'[name,productDetailNum]'">
+                <tr ng-repeat="iterationProductDetails in splitedProductDetails[currentPage-1]">
                     <td  width="20%">{{iterationProductDetails.name}}</td>
                     <td  width="20%">{{iterationProductDetails.productDetailNum}}</td>
                     <td  width="20%" ng-show="editable"><input class="custom-checkbox" type="checkbox" ng-model="iterationProductDetails.enable"  ng-click="selectOne(currentPage)" ></td>
