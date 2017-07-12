@@ -22,14 +22,16 @@
                 <th>产品编号</th>
                 <th class="wrapped-layer"><input ng-show="editable" class="selecct-all custom-checkbox" type="checkbox" ng-model="select_all" ng-click="selectAll(currentPage)"/>用户可否领取红包</th>
                 <th>用户已扫码</th>
+                <th>最后修改时间</th>
                 </thead>
                 <tbody>
                 <tr ng-repeat="iterationProductDetails in splitedProductDetails[currentPage-1] | orderBy:'[name,productDetailNum]'">
-                    <td  width="25%">{{iterationProductDetails.name}}</td>
-                    <td  width="25%">{{iterationProductDetails.productDetailNum}}</td>
-                    <td  width="25%" ng-show="editable"><input class="custom-checkbox" type="checkbox" ng-model="iterationProductDetails.enable"  ng-click="selectOne(currentPage)" ></td>
-                    <td  width="25%" ng-show="!editable">{{iterationProductDetails.enable | isSelectedFilter}}</td>
-                    <td  width="25%">{{iterationProductDetails.scanned | isSelectedFilter}}</td>
+                    <td  width="20%">{{iterationProductDetails.name}}</td>
+                    <td  width="20%">{{iterationProductDetails.productDetailNum}}</td>
+                    <td  width="20%" ng-show="editable"><input class="custom-checkbox" type="checkbox" ng-model="iterationProductDetails.enable"  ng-click="selectOne(currentPage)" ></td>
+                    <td  width="20%" ng-show="!editable">{{iterationProductDetails.enable | isSelectedFilter}}</td>
+                    <td  width="20%">{{iterationProductDetails.scanned | isSelectedFilter}}</td>
+                    <td  width="20%">{{iterationProductDetails.lastUpdateDate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 </tr>
 
                 </tbody>

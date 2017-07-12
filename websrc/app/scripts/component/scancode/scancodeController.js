@@ -39,6 +39,7 @@ angular.module('npmtApp').controller('scancodeController',['$http', '$rootScope'
 	   				tempProduct.productDetailNum = productResponse[i].productDetails[j].productDetailNum;
 	   				tempProduct.enable = productResponse[i].productDetails[j].enable;
 	   				tempProduct.scanned = productResponse[i].productDetails[j].scanned;
+            tempProduct.lastUpdateDate = productResponse[i].productDetails[j].updateDate || productResponse[i].productDetails[j].createDate;
 	   				$scope.allProductDetails.push(tempProduct);
 	   				if ((i === productResponse.length-1)&&(j === productResponse[i].productDetails.length-1)) {
 	   					$scope.splitedProductDetails = $scope.splitResults($scope.allProductDetails, $scope.itemPerPage);
