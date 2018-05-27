@@ -18,23 +18,104 @@
         </div>
     </div>
     <div class="row">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover batch-content">
                 <thead>
                     <th>名称</th>
-                    <th>可销售城市</th>
-                    <th>数量（盒）</th>
+                    <th>城市</th>
+                    <th>数量</th>
                     <th>描述</th>
+                    <th>标题</th>
+                    <th>内容</th>
+                    <th>弹窗标题</th>
+                    <th>分享链接</th>
+                    <th>缩略图链接</th>
                     <th>操作</th>
                 </thead>
                 <tbody>
                     <tr ng-repeat="batch in splitedBatchInfo[currentPage-1]">
-                        <td width="25%">{{batch.name}}</td>
-                        <td  width="20%">{{batch.allowSellCities | allowedCityFilter}}</td>
-                        <td  width="15%">{{batch.amount}}</td>
-                        <td  width="20%">{{batch.description}}</td>
-                        <td  width="20%">
+                        <td  width="10%">{{batch.name}}</td>
+                        <td  width="6%">{{batch.allowSellCities | allowedCityFilter}}</td>
+                        <td  width="6%">{{batch.amount}}</td>
+                        <td  width="10%">{{batch.description}}</td>
+                        <td  width="6%">{{batch.wechatUserTitle}}</td>
+                        <td  width="10%">{{batch.wechatUserText}}</td>
+                        <td  width="10%">{{batch.wechatShareTitle}}</td>
+                        <td  width="10%">{{batch.wechatShareLink}}</td>
+                        <td  width="10%">{{batch.wechatShareImgUrl}}</td>
+                        <td  width="22%">
+                            <button class="btn btn-large btn-detail" data-toggle="modal" ng-click="openBatchInfoModal(batch)">编辑</button>
+                            <div class="modal fade product-batch-modal" id="{{batch.id}}_batch_info" tabindex="-1" role="dialog" aria-labelledby="batchInfoModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="batchInfoModalLabel">修改产品批次信息</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form name="formRegister">
+                                                <div class="modal-row">
+                                                    <label for="productId">产品名称</label>
+                                                    <input type="text" name="productId" id="productId" ng-model="updatedProductBatch.name" disabled="true" />
+                                                </div>
+                                             <!--    <div class="modal-row">
+                                                    <label for="cityId">可销售城市</label>
+                                                    <input type="text" name="cityId" id="cityId" ng-model="updatedProductBatch.allowSellCities" ng-minlength="2" disabled="true" />
+                                                </div> -->
+                                                <div class="modal-row">
+                                                    <label for="countId">产品数量（件）</label>
+                                                    <input type="text" name="countId" id="countId" ng-model="updatedProductBatch.amount" disabled="true" />
+                                                </div>
+                                                <div class="modal-row">
+                                                    <label for="descId">产品描述</label>
+                                                    <input type="text" name="descId" id="descId" ng-model="updatedProductBatch.description" disabled="true" />
+                                                </div>
+                                                <div class="modal-row">
+                                                    <label for="wechatUserTitleId">微信页面标题</label>
+                                                    <input type="text" name="wechatUserTitleId" id="wechatUserTitleId" ng-model="updatedProductBatch.wechatUserTitle" ng-maxlength="200" placeholder="请输入微信认证成功页面显示的标题" />
+                                                    <div class="error-messages" ng-messages="formRegister.wechatUserTitleId.$error">
+                                                        <p ng-message="maxlength">微信认证成功页面显示的标题最大长度200</p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-row">
+                                                    <label for="wechatUserTextId">微信页面内容</label>
+                                                    <input type="text" name="wechatUserTextId" id="wechatUserTextId" ng-model="updatedProductBatch.wechatUserText" ng-maxlength="200" placeholder="请输入微信认证成功页面显示的主要内容" />
+                                                    <div class="error-messages" ng-messages="formRegister.wechatUserTextId.$error">
+                                                        <p ng-message="maxlength">微信认证成功页面显示的主要内容最大长度200</p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-row">
+                                                    <label for="wechatShareTitleId">弹窗标题</label>
+                                                    <input type="text" name="wechatShareTitleId" id="wechatShareTitleId" ng-model="updatedProductBatch.wechatShareTitle" ng-maxlength="200" placeholder="请输入微信分享弹窗的显示标题" />
+                                                    <div class="error-messages" ng-messages="formRegister.wechatShareTitleId.$error">
+                                                        <p ng-message="maxlength">微信分享弹窗的显示标题最大长度200</p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-row">
+                                                    <label for="wechatShareLinkId">弹窗分享链接</label>
+                                                    <input type="text" name="wechatShareLinkId" id="wechatShareLinkId" ng-model="updatedProductBatch.wechatShareLink" ng-maxlength="200" placeholder="请输入微信分享弹窗的分享链接" />
+                                                    <div class="error-messages" ng-messages="formRegister.wechatShareLinkId.$error">
+                                                        <p ng-message="maxlength">微信分享弹窗的分享链接最大长度200</p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-row">
+                                                    <label for="wechatShareImgId">弹窗缩略图链接</label>
+                                                    <input type="text" name="wechatShareImgId" id="wechatShareImgId" ng-model="updatedProductBatch.wechatShareImgUrl" ng-maxlength="200" placeholder="请输入微信分享弹窗的缩略图链接" />
+                                                    <div class="error-messages" ng-messages="formRegister.wechatShareImgId.$error">
+                                                        <p ng-message="maxlength">微信分享弹窗的缩略图链接最大长度200</p>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal"  ng-click="closeModal()">取消</button>
+                                            <button type="button" class="btn btn-detail" ng-click="updateProductBatch(updatedProductBatch)">修改</button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div>    
                             <button class="btn btn-large btn-detail" data-toggle="modal" ng-click="openDetailModal(batch.productDetails)">详情</button>
-                            <button class="btn btn-large btn-detail" data-toggle="modal" ng-click="downloadQRInfo(batch.productDetails)">下载二维码</button>
+                            <button class="btn btn-large btn-detail" data-toggle="modal" ng-click="downloadQRInfo(batch.productDetails)">下载</button>
                             <!-- <button class="btn btn-large btn-danger" type="button">删除</button> -->
                                 <!-- add product batch Modal -->
                             <div class="modal fade" id="{{batch.productDetails[0].productId}}_product_detail" tabindex="-1" role="dialog" aria-labelledby="productDetailModalLabel" aria-hidden="true">
@@ -79,7 +160,7 @@
 
 
 <!-- add product batch Modal -->
-<div class="modal fade" id="addProductBatch" tabindex="-1" role="dialog" aria-labelledby="addProductBatchModalLabel" aria-hidden="true">
+<div class="modal fade product-batch-modal" id="addProductBatch" tabindex="-1" role="dialog" aria-labelledby="addProductBatchModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -152,6 +233,43 @@
                             <p ng-message="required">当前为平均红包模式，金额必填</p>
                         </div>
                     </div>
+              
+                    <div class="modal-row">
+                        <label for="wechatUserTitleId">微信页面标题</label>
+                        <input type="text" name="wechatUserTitleId" id="wechatUserTitleId" ng-model="addedProductBatch.wechatUserTitle" ng-maxlength="200" placeholder="请输入微信认证成功页面显示的标题" />
+                        <div class="error-messages" ng-messages="formRegister.wechatUserTitleId.$error">
+                            <p ng-message="maxlength">微信认证成功页面显示的标题最大长度200</p>
+                        </div>
+                    </div>
+                    <div class="modal-row">
+                        <label for="wechatUserTextId">微信页面内容</label>
+                        <input type="text" name="wechatUserTextId" id="wechatUserTextId" ng-model="addedProductBatch.wechatUserText" ng-maxlength="200" placeholder="请输入微信认证成功页面显示的主要内容" />
+                        <div class="error-messages" ng-messages="formRegister.wechatUserTextId.$error">
+                            <p ng-message="maxlength">微信认证成功页面显示的主要内容最大长度200</p>
+                        </div>
+                    </div>
+                    <div class="modal-row">
+                        <label for="wechatShareTitleId">弹窗标题</label>
+                        <input type="text" name="wechatShareTitleId" id="wechatShareTitleId" ng-model="addedProductBatch.wechatShareTitle" ng-maxlength="200" placeholder="请输入微信分享弹窗的显示标题" />
+                        <div class="error-messages" ng-messages="formRegister.wechatShareTitleId.$error">
+                            <p ng-message="maxlength">微信分享弹窗的显示标题最大长度200</p>
+                        </div>
+                    </div>
+                    <div class="modal-row">
+                        <label for="wechatShareLinkId">弹窗分享链接</label>
+                        <input type="text" name="wechatShareLinkId" id="wechatShareLinkId" ng-model="addedProductBatch.wechatShareLink" ng-maxlength="200" placeholder="请输入微信分享弹窗的分享链接" />
+                        <div class="error-messages" ng-messages="formRegister.wechatShareLinkId.$error">
+                            <p ng-message="maxlength">微信分享弹窗的分享链接最大长度200</p>
+                        </div>
+                    </div>
+                    <div class="modal-row">
+                        <label for="wechatShareImgId">弹窗缩略图链接</label>
+                        <input type="text" name="wechatShareImgId" id="wechatShareImgId" ng-model="addedProductBatch.wechatShareImgUrl" ng-maxlength="200" placeholder="请输入微信分享弹窗的缩略图链接" />
+                        <div class="error-messages" ng-messages="formRegister.wechatShareImgId.$error">
+                            <p ng-message="maxlength">微信分享弹窗的缩略图链接最大长度200</p>
+                        </div>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">

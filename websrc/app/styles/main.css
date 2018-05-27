@@ -54,6 +54,22 @@ body {
   margin-top: 28px;
 }
 
+.batch-content td {
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 40px;
+}
+
+.product-batch-modal .modal-row label {
+  display: flex;
+}
+
+.product-batch-modal .modal-row p {
+  position: absolute;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
