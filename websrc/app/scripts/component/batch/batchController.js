@@ -41,6 +41,7 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
 
     $scope.openBatchInfoModal = function(batch) {
         $scope.updatedProductBatch = {
+            "id": batch.id,
             "amount": batch.amount,
             "averageAmount": batch.averageAmount,
             "description": batch.description,
@@ -93,30 +94,6 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     $scope.addProductBatch = function(tempProductBatch) {
 
         tempProductBatch = {
-          "wechatUserTitle": $scope.addedProductBatch.wechatUserTitle,
-          "wechatUserText": $scope.addedProductBatch.wechatUserText,
-          "wechatShareTitle": $scope.addedProductBatch.wechatShareTitle,
-          "wechatShareLink": $scope.addedProductBatch.wechatShareLink,
-          "wechatShareImgUrl": $scope.addedProductBatch.wechatShareImgUrl,
-        };
-
-        batchService.updateProductBatchServ(tempProductBatch).then(function(response){
-          if (response.status = 200 ) {
-            $('#'+batch.id+'_batch_info').modal('hide');
-            $timeout(function () {
-              $state.reload();
-            },800);
-          }
-        }, function (error) {
-          console.log(error);
-        });
-
-    }
-
-
-    $scope.updateProductBatch = function(tempProductBatch) {
-
-        tempProductBatch = {
           "allowSellCities": $scope.getSelectedCityList($scope.outputBrowsers),
           "amount": $scope.addedProductBatch.amount,
           "averageAmount": $scope.addedProductBatch.averageAmount,
@@ -162,6 +139,21 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
 
     }
 
+
+    $scope.updateProductBatch = function(tempProductBatch) {
+        batchService.updateProductBatchServ(tempProductBatch).then(function(response){
+          if (response.status = 200 ) {
+            $('#'+tempProductBatch.id+'_batch_info').modal('hide');
+            $timeout(function () {
+              $state.reload();
+            },800);
+          }
+        }, function (error) {
+          console.log(error);
+        });
+
+    }
+
     $scope.closeModal = function() {
         $scope.addedProductBatch = {
           "allowSellCities": [],
@@ -180,6 +172,10 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
           "wechatShareImgUrl":""
         };
         $('#addProductBatch').modal('hide');
+    }
+
+    $scope.closeUpdateModal = function(tempProductBatch) {
+      $('#'+tempProductBatch.id+'_batch_info').modal('hide');
     }
 
 
