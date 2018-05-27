@@ -93,15 +93,6 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
     $scope.addProductBatch = function(tempProductBatch) {
 
         tempProductBatch = {
-          "allowSellCities": $scope.getSelectedCityList($scope.outputBrowsers),
-          "amount": $scope.addedProductBatch.amount,
-          "averageAmount": $scope.addedProductBatch.averageAmount,
-          "description": $scope.addedProductBatch.description || "",
-          "name": $scope.addedProductBatch.name,
-          "forceCityCheck": $scope.addedProductBatch.forceCityCheck,
-          "randomRedpacket": $scope.addedProductBatch.randomRedpacket,
-          "randomMinAmount": $scope.addedProductBatch.randomMinAmount,
-          "randomMaxAmount": $scope.addedProductBatch.randomMaxAmount,
           "wechatUserTitle": $scope.addedProductBatch.wechatUserTitle,
           "wechatUserText": $scope.addedProductBatch.wechatUserText,
           "wechatShareTitle": $scope.addedProductBatch.wechatShareTitle,
@@ -109,25 +100,9 @@ angular.module('npmtApp').controller('batchController',['$http', '$rootScope', '
           "wechatShareImgUrl": $scope.addedProductBatch.wechatShareImgUrl,
         };
 
-        batchService.addProductBatchServ(tempProductBatch).then(function(response){
+        batchService.updateProductBatchServ(tempProductBatch).then(function(response){
           if (response.status = 200 ) {
-            $scope.addedProductBatch = {
-              "allowSellCities": [],
-              "amount": null,
-              "averageAmount": null,
-              "description": "",
-              "name": "",
-              "forceCityCheck": false,
-              "randomRedpacket":false,
-              "randomMinAmount": 1,
-              "randomMaxAmount": 1000,
-              "wechatUserTitle":"",
-              "wechatUserText":"",
-              "wechatShareTitle":"",
-              "wechatShareLink":"",
-              "wechatShareImgUrl":""
-            };
-            $('#addProductBatch').modal('hide');
+            $('#'+batch.id+'_batch_info').modal('hide');
             $timeout(function () {
               $state.reload();
             },800);
